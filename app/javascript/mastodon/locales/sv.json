@@ -236,7 +236,7 @@
   "empty_column.follow_requests": "Du har inga följarförfrågningar än. När du får en kommer den visas här.",
   "empty_column.followed_tags": "Du följer inga hashtaggar ännu. När du gör det kommer de att dyka upp här.",
   "empty_column.hashtag": "Det finns inget i denna hashtag ännu.",
-  "empty_column.home": "Din hemma-tidslinje är tom! Följ fler användare för att fylla den. {suggestions}",
+  "empty_column.home": "Din hemma-tidslinje är tom! Följ fler användare för att fylla den.",
   "empty_column.list": "Det finns inget i denna lista än. När listmedlemmar publicerar nya inlägg kommer de synas här.",
   "empty_column.lists": "Du har inga listor än. När skapar en kommer den dyka upp här.",
   "empty_column.mutes": "Du har ännu inte tystat några användare.",

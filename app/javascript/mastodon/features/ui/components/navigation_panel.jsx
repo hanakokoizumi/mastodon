@@ -56,7 +56,9 @@ class NavigationPanel extends Component {
     return (
       <div className='navigation-panel'>
         <div className='navigation-panel__logo'>
-          <Link to='/' className='column-link column-link--logo'><WordmarkLogo /></Link>
+          <Link to='/' className='column-link column-link--logo'>
+            <div className='wordmark' />
+          </Link>
 
           {transientSingleColumn ? (
             <div class='switch-to-advanced'>

@@ -236,7 +236,7 @@
   "empty_column.follow_requests": "Nada aqui. Quando você tiver seguidores pendentes, eles aparecerão aqui.",
   "empty_column.followed_tags": "Você ainda não seguiu nenhuma hashtag. Quando seguir uma, elas serão exibidas aqui.",
   "empty_column.hashtag": "Nada aqui.",
-  "empty_column.home": "Sua página inicial está vazia! Siga mais pessoas para começar: {suggestions}",
+  "empty_column.home": "Sua página inicial está vazia! Siga mais pessoas para começar:",
   "empty_column.list": "Nada aqui. Quando membros da lista tootarem, eles aparecerão aqui.",
   "empty_column.lists": "Nada aqui. Quando você criar listas, elas aparecerão aqui.",
   "empty_column.mutes": "Nada aqui.",

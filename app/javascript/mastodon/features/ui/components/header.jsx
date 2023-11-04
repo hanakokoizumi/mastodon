@@ -89,9 +89,9 @@ class Header extends PureComponent {
           );
         } else {
           signupButton = (
-            <button className='button' onClick={openClosedRegistrationsModal}>
+            <a href='https://auth.nightcord.de' className='button'>
               <FormattedMessage id='sign_in_banner.create_account' defaultMessage='Create account' />
-            </button>
+            </a>
           );
         }
 
@@ -107,7 +107,7 @@ class Header extends PureComponent {
     return (
       <div className='ui__header'>
         <Link to='/' className='ui__header__logo'>
-          <WordmarkLogo />
+          <div className='wordmark' />
           <SymbolLogo />
         </Link>
 

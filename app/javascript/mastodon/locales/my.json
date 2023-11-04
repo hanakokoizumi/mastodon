@@ -236,7 +236,7 @@
   "empty_column.follow_requests": "သင့်တွင် စောင့်ကြည့်ရန် တောင်းဆိုမှုများ မရှိသေးပါ။ သင်လက်ခံရရှိပါက ၎င်းကို ဤနေရာတွင် ပြထားပါမည်။",
   "empty_column.followed_tags": "သင်သည် မည်သည့် hashtag ကိုမျှ စောင့်မကြည့်ရသေးပါ။ စောင့်ကြည့်ပါက ဤနေရာတွင် ပြပေးပါမည်။",
   "empty_column.hashtag": "ဤ hashtag တွင် မည်သည့်အရာမျှ မရှိသေးပါ။",
-  "empty_column.home": "သင့်ပင်မစာမျက်နှာမှာ အလွတ်ဖြစ်နေပါသည်။ ဖြည့်ရန်အတွက် လူများကို စောင့်ကြည့်ပါ {suggestions}",
+  "empty_column.home": "သင့်ပင်မစာမျက်နှာမှာ အလွတ်ဖြစ်နေပါသည်။ ဖြည့်ရန်အတွက် လူများကို စောင့်ကြည့်ပါ",
   "empty_column.list": "There is nothing in this list yet. When members of this list post new statuses, they will appear here.",
   "empty_column.lists": "သင့်တွင် List မရှိသေးပါ။ List အသစ်ဖွင့်လျှင် ဤနေရာတွင်ကြည့်ရှုနိုင်မည်",
   "empty_column.mutes": "ပိတ်ထားသောအကောင့်များမရှိသေးပါ",

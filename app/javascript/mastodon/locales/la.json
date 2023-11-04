@@ -54,7 +54,7 @@
   "emoji_button.search": "Quaerere...",
   "empty_column.account_timeline": "Hic nulla contributa!",
   "empty_column.account_unavailable": "Notio non impetrabilis",
-  "empty_column.home": "Your home timeline is empty! Follow more people to fill it up. {suggestions}",
+  "empty_column.home": "Your home timeline is empty! Follow more people to fill it up.",
   "empty_column.list": "There is nothing in this list yet. When members of this list post new statuses, they will appear here.",
   "explore.trending_statuses": "Contributa",
   "generic.saved": "servavit",

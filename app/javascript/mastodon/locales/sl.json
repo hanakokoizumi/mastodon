@@ -236,7 +236,7 @@
   "empty_column.follow_requests": "Nimate prošenj za sledenje. Ko boste prejeli kakšno, se bo prikazala tukaj.",
   "empty_column.followed_tags": "Zaenkrat ne sledite še nobenemu ključniku. Ko boste, se bodo pojavili tukaj.",
   "empty_column.hashtag": "V tem ključniku še ni nič.",
-  "empty_column.home": "Vaša domača časovnica je prazna! Sledite več osebam, da jo zapolnite. {suggestions}",
+  "empty_column.home": "Vaša domača časovnica je prazna! Sledite več osebam, da jo zapolnite.",
   "empty_column.list": "Na tem seznamu ni ničesar. Ko bodo člani tega seznama objavili nove statuse, se bodo pojavili tukaj.",
   "empty_column.lists": "Nimate seznamov. Ko ga boste ustvarili, se bo prikazal tukaj.",
   "empty_column.mutes": "Niste utišali še nobenega uporabnika.",
