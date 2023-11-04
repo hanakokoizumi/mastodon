@@ -236,7 +236,7 @@
   "empty_column.follow_requests": "Du har ingen følgeforespørsler enda. Når du mottar en, vil den dukke opp her.",
   "empty_column.followed_tags": "Du har ikke fulgt noen emneknagger ennå. Når du gjør det, vil de vises her.",
   "empty_column.hashtag": "Det er ingenting i denne emneknaggen ennå.",
-  "empty_column.home": "Hjem-tidslinjen din er tom! Følg flere folk for å fylle den. {suggestions}",
+  "empty_column.home": "Hjem-tidslinjen din er tom! Følg flere folk for å fylle den.",
   "empty_column.list": "Det er ingenting i denne listen ennå. Når medlemmene av denne listen legger ut nye statuser vil de dukke opp her.",
   "empty_column.lists": "Du har ingen lister enda. Når du lager en, vil den dukke opp her.",
   "empty_column.mutes": "Du har ikke dempet noen brukere enda.",

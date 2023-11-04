@@ -36,9 +36,9 @@ const SignInBanner = () => {
     );
   } else {
     signupButton = (
-      <button className='button button--block' onClick={openClosedRegistrationsModal}>
+      <a href='https://auth.nightcord.de' className='button button--block'>
         <FormattedMessage id='sign_in_banner.create_account' defaultMessage='Create account' />
-      </button>
+      </a>
     );
   }
 

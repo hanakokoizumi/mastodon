@@ -77,3 +77,19 @@
     text-decoration: none !important;
   }
 }
+
+.ui {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background: none;
+}
+
+.wordmark {
+  background: url('../images/logo-symbol-wordmark-light.png') no-repeat;
+  background-size: cover;
+  height: 30px;
+  width: 130px;
+}

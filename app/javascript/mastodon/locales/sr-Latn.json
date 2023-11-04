@@ -236,7 +236,7 @@
   "empty_column.follow_requests": "Još uvek nemate nijedan zahtev za praćenje. Kada primite zahtev, on će se pojaviti ovde.",
   "empty_column.followed_tags": "Još uvek niste zapratili nijednu heš oznaku. Kada to uradite, one će se pojaviti ovde.",
   "empty_column.hashtag": "Još uvek nema ničega u ovoj heš oznaci.",
-  "empty_column.home": "Vaša početna vremenska linija je prazna! Pratite više ljudi da biste je popunili. {suggestions}",
+  "empty_column.home": "Vaša početna vremenska linija je prazna! Pratite više ljudi da biste je popunili.",
   "empty_column.list": "U ovoj listi još nema ničega. Kada članovi ove liste objave nešto novo, pojaviće se ovde.",
   "empty_column.lists": "Još uvek nemate nijednu listu. Kada napravite jednu, ona će se pojaviti ovde.",
   "empty_column.mutes": "Još uvek ne ignorišete nijednog korisnika.",

@@ -236,7 +236,7 @@
   "empty_column.follow_requests": "Zatím nemáte žádné žádosti o sledování. Až nějakou obdržíte, zobrazí se zde.",
   "empty_column.followed_tags": "Zatím jste nesledovali žádné hashtagy. Až to uděláte, objeví se zde.",
   "empty_column.hashtag": "Pod tímto hashtagem zde zatím nic není.",
-  "empty_column.home": "Vaše domovská časová osa je prázdná! Naplňte ji sledováním dalších lidí. {suggestions}",
+  "empty_column.home": "Vaše domovská časová osa je prázdná! Naplňte ji sledováním dalších lidí.",
   "empty_column.list": "V tomto seznamu zatím nic není. Až nějaký člen z tohoto seznamu zveřejní nový příspěvek, objeví se zde.",
   "empty_column.lists": "Zatím nemáte žádné seznamy. Až nějaký vytvoříte, zobrazí se zde.",
   "empty_column.mutes": "Zatím jste neskryli žádného uživatele.",

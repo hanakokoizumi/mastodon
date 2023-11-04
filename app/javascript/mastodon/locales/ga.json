@@ -207,7 +207,7 @@
   "empty_column.explore_statuses": "Níl rud ar bith ag treochtáil faoi láthair. Tar ar ais ar ball!",
   "empty_column.follow_requests": "Níl aon phostáil leabharmharcaithe agat fós. Nuair a dhéanann tú leabharmharc, feicfear anseo é.",
   "empty_column.hashtag": "Níl rud ar bith faoin haischlib seo go fóill.",
-  "empty_column.home": "Tá d'amlíne baile folamh! B'fhiú duit cúpla duine eile a leanúint lena líonadh! {suggestions}",
+  "empty_column.home": "Tá d'amlíne baile folamh! B'fhiú duit cúpla duine eile a leanúint lena líonadh!",
   "empty_column.list": "There is nothing in this list yet. When members of this list post new statuses, they will appear here.",
   "empty_column.lists": "Níl aon liostaí fós agat. Nuair a chruthaíonn tú ceann, feicfear anseo é.",
   "empty_column.mutes": "Níl aon úsáideoir balbhaithe agat fós.",
