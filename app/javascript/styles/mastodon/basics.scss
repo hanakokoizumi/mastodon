@@ -1,6 +1,26 @@
 @use 'variables' as *;
 @use 'functions' as *;
 
+html {
+  background: url('@/images/background.webp') no-repeat center center fixed;
+  background-size: cover;
+
+  &::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: transparent;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    &::before {
+      background: rgb(0 0 0 / 45%);
+    }
+  }
+}
+
 html.has-modal {
   &,
   body {
