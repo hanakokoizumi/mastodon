@@ -5,6 +5,15 @@ html {
   background: var(--color-bg-ambient) url('@/images/background.webp') no-repeat center center fixed;
   background-size: cover;
 
+  &::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: var(--bg-dim-overlay, transparent);
+    pointer-events: none;
+    z-index: 0;
+  }
+
   &.custom-scrollbars {
     scrollbar-color: var(--color-text-secondary) var(--color-bg-secondary);
   }
