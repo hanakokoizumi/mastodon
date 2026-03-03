@@ -9,15 +9,15 @@ module Mastodon
     end
 
     def minor
-      6
+      5
     end
 
     def patch
-      0
+      7
     end
 
     def default_prerelease
-      'alpha.5'
+      'nightcord'
     end
 
     def prerelease

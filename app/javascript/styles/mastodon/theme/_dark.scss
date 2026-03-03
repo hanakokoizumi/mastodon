@@ -3,11 +3,11 @@
 @mixin tokens {
   /* TEXT TOKENS */
 
-  --color-text-primary: var(--color-grey-100);
-  --color-text-secondary: var(--color-grey-300);
+  --color-text-primary: var(--color-grey-300);
+  --color-text-secondary: var(--color-grey-500);
   --color-text-tertiary: var(--color-grey-400);
   --color-text-on-inverted: var(--color-grey-950);
-  --color-text-brand: var(--color-indigo-300);
+  --color-text-brand: var(--color-indigo-400);
   --color-text-brand-soft: color-mix(
     in oklab,
     var(--color-text-primary),
@@ -35,8 +35,8 @@
   /* BACKGROUND TOKENS */
 
   // Neutrals
-  --color-bg-primary: var(--color-grey-950);
-  --overlay-strength-secondary: 4%;
+  --color-bg-primary: rgb(61 54 89 / 88%);
+  --overlay-strength-secondary: 6%;
   --color-bg-secondary-base: var(--color-white);
   --color-bg-secondary: #{utils.css-alpha(
       var(--color-bg-secondary-base),
@@ -54,7 +54,7 @@
   );
 
   // Utility
-  --color-bg-ambient: var(--color-bg-primary);
+  --color-bg-ambient: transparent;
   --color-bg-inverted: var(--color-grey-50);
   --color-bg-media-base: var(--color-black);
   --color-bg-media-strength: 65%;
@@ -66,7 +66,7 @@
   --color-bg-disabled: var(--color-grey-700);
 
   // Brand
-  --overlay-strength-brand: 22%;
+  --overlay-strength-brand: 20%;
   --color-bg-brand-base: var(--color-indigo-700);
   --color-bg-brand-base-hover: color-mix(
     in oklab,
@@ -74,7 +74,7 @@
     var(--color-bg-primary) var(--overlay-strength-brand)
   );
   --color-bg-brand-soft: #{utils.css-alpha(
-      #6f4df5,
+      #c291f2,
       calc(var(--overlay-strength-brand) * 2)
     )};
   --color-bg-brand-softer: #{utils.css-alpha(
@@ -174,10 +174,11 @@
 @mixin contrast-overrides {
   /* TEXT TOKENS */
 
-  --color-text-primary: var(--color-grey-50);
+  --color-text-primary: var(--color-white);
+  --color-text-secondary: var(--color-grey-200);
   --color-text-status-links: var(--color-text-brand);
 
   /* BORDER TOKENS */
 
-  --border-strength-primary: 30%;
+  --border-strength-primary: 40%;
 }
