@@ -14,7 +14,7 @@ jobs:
     # - the PR branch is in the `mastodon/mastodon` repository
     # - the PR is not a draft
     # - the PR has the "build-image" label
-    if: ${{ github.event.pull_request.head.repo.full_name == github.repository && !github.event.pull_request.draft && contains(github.event.pull_request.labels.*.name, 'build-image') }}
+    if: ${{ !github.event.pull_request.draft && contains(github.event.pull_request.labels.*.name, 'build-image') }}
     steps:
       # Repository needs to be cloned so `git rev-parse` below works
       - name: Clone repository
@@ -33,22 +33,7 @@ jobs:
     with:
       file_to_build: Dockerfile
       push_to_images: |
-        ghcr.io/mastodon/mastodon
-      version_metadata: ${{ needs.compute-suffix.outputs.metadata }}
-      flavor: |
-        latest=auto
-      tags: |
-        type=ref,event=pr
-        type=ref,event=pr,suffix=-${{ needs.compute-suffix.outputs.short_sha }}
-    secrets: inherit
-
-  build-image-streaming:
-    needs: compute-suffix
-    uses: ./.github/workflows/build-container-image.yml
-    with:
-      file_to_build: streaming/Dockerfile
-      push_to_images: |
-        ghcr.io/mastodon/mastodon-streaming
+        ghcr.io/hanakokoizumi/mastodon
       version_metadata: ${{ needs.compute-suffix.outputs.metadata }}
       flavor: |
         latest=auto
