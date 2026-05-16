@@ -131,6 +131,32 @@ RSpec.describe 'OmniAuth callbacks' do
 
   describe '#openid_connect', if: Rails.configuration.x.omniauth.oidc_enabled? && ENV['OIDC_SCOPE'].present? do
     it_behaves_like 'omniauth provider callbacks', :openid_connect
+
+    describe 'RP-initiated logout (end session) hints' do
+      before do
+        user = Fabricate(:user, email: 'user@host.example')
+        Fabricate(:identity, user: user, uid: '123', provider: :openid_connect)
+        mock_omniauth(:openid_connect, {
+          provider: 'openid_connect',
+          uid: '123',
+          info: {
+            verified: 'true',
+            email: 'user@host.example',
+          },
+          credentials: {
+            id_token: 'eyJhbGci.test.sig',
+          },
+        })
+      end
+
+      it 'stores id_token in session for id_token_hint on end-session redirect' do
+        post user_openid_connect_omniauth_callback_path
+
+        expect(response).to redirect_to(root_path)
+        expect(session[OmniAuth::Strategies::OpenidConnectEndSessionEnhancement::ID_TOKEN_HINT_SESSION_KEY])
+          .to eq('eyJhbGci.test.sig')
+      end
+    end
   end
 
   describe '#cas', if: Rails.configuration.x.omniauth.cas_enabled? do
