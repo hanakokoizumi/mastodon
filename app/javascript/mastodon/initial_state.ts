@@ -38,6 +38,7 @@ interface InitialStateMeta {
   remote_live_feed_access: 'public' | 'authenticated' | 'disabled';
   local_topic_feed_access: 'public' | 'authenticated';
   remote_topic_feed_access: 'public' | 'authenticated' | 'disabled';
+  oidc_enabled?: boolean;
   title: string;
   show_trends: boolean;
   landing_page: 'about' | 'trends' | 'local_feed';
@@ -127,6 +128,7 @@ export const localLiveFeedAccess = getMeta('local_live_feed_access');
 export const remoteLiveFeedAccess = getMeta('remote_live_feed_access');
 export const localTopicFeedAccess = getMeta('local_topic_feed_access');
 export const remoteTopicFeedAccess = getMeta('remote_topic_feed_access');
+export const oidc_enabled = getMeta('oidc_enabled');
 export const title = getMeta('title');
 export const landingPage = getMeta('landing_page');
 export const useBlurhash = getMeta('use_blurhash');
