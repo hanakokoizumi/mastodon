@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative 'omniauth_oidc_direct'
+
 class ContentSecurityPolicy
   def base_host
     Rails.configuration.x.web_domain
@@ -14,7 +16,7 @@ class ContentSecurityPolicy
   end
 
   def sso_host
-    return unless ENV['ONE_CLICK_SSO_LOGIN'] == 'true' && ENV['OMNIAUTH_ONLY'] == 'true' && Devise.omniauth_providers.length == 1
+    return unless OmniauthOidcDirect.form_action_csp_required?
 
     provider = Devise.omniauth_configs[Devise.omniauth_providers[0]]
     @sso_host ||= begin

@@ -1,6 +1,9 @@
 %ul.no-list
   - if user_signed_in?
     %li= link_to t('settings.account_settings'), edit_user_registration_path
+  - elsif OmniauthOidcDirect.single_oidc_provider?
+    - if controller_name != 'sessions'
+      %li= link_to "#{t('auth.login')}/#{t('auth.register')}", OmniauthOidcDirect.omniauth_authorize_href, data: { method: :post }
   - else
     - if controller_name != 'sessions'
       %li= link_to_login t('auth.login')
@@ -12,7 +15,8 @@
       %li= link_to t('auth.forgot_password'), new_user_password_path
 
   - if controller_name != 'confirmations' && (!user_signed_in? || !current_user.confirmed? || current_user.unconfirmed_email.present?)
-    %li= link_to t('auth.didnt_get_confirmation'), new_user_confirmation_path
+    - unless OmniauthOidcDirect.single_oidc_provider?
+      %li= link_to t('auth.didnt_get_confirmation'), new_user_confirmation_path
 
   - if user_signed_in?
     %li= link_to t('auth.logout'), destroy_user_session_path, data: { method: :delete }

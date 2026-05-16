@@ -15,6 +15,7 @@ import {
   domain as localDomain,
   registrationsOpen,
   sso_redirect,
+  sso_login_path,
 } from 'mastodon/initial_state';
 import { useAppSelector, useAppDispatch } from 'mastodon/store';
 
@@ -112,7 +113,7 @@ const isValueValid = (value: string) => {
 
 const sendToFrame = (frame: HTMLIFrameElement | null, value: string): void => {
   if (valueToDomain(value.trim()) === localDomain) {
-    window.location.href = '/auth/sign_in';
+    window.location.href = sso_redirect ?? sso_login_path ?? '/auth/sign_in';
     return;
   }
 
@@ -430,35 +431,34 @@ const InteractionModal: React.FC<{
     );
   }, [dispatch]);
 
-  let signupButton;
+  const ssoInteractionPath = sso_redirect ?? sso_login_path;
 
-  if (sso_redirect) {
-    signupButton = (
-      <a href={sso_redirect} data-method='post' className='link-button'>
-        <FormattedMessage
-          id='sign_in_banner.create_account'
-          defaultMessage='Create account'
-        />
-      </a>
-    );
-  } else if (registrationsOpen) {
-    signupButton = (
-      <a href={signupUrl} className='link-button'>
-        <FormattedMessage
-          id='sign_in_banner.create_account'
-          defaultMessage='Create account'
-        />
-      </a>
-    );
-  } else {
-    signupButton = (
-      <button className='link-button' onClick={handleSignupClick} type='button'>
-        <FormattedMessage
-          id='sign_in_banner.create_account'
-          defaultMessage='Create account'
-        />
-      </button>
-    );
+  let signupButton: React.ReactNode | null = null;
+
+  if (!ssoInteractionPath) {
+    if (registrationsOpen) {
+      signupButton = (
+        <a href={signupUrl} className='link-button'>
+          <FormattedMessage
+            id='sign_in_banner.create_account'
+            defaultMessage='Create account'
+          />
+        </a>
+      );
+    } else {
+      signupButton = (
+        <button
+          className='link-button'
+          onClick={handleSignupClick}
+          type='button'
+        >
+          <FormattedMessage
+            id='sign_in_banner.create_account'
+            defaultMessage='Create account'
+          />
+        </button>
+      );
+    }
   }
 
   return (
@@ -481,13 +481,15 @@ const InteractionModal: React.FC<{
 
       <LoginForm resourceUrl={url} />
 
-      <p>
-        <FormattedMessage
-          id='interaction_modal.no_account_yet'
-          defaultMessage="Don't have an account yet?"
-        />{' '}
-        {signupButton}
-      </p>
+      {signupButton ? (
+        <p>
+          <FormattedMessage
+            id='interaction_modal.no_account_yet'
+            defaultMessage="Don't have an account yet?"
+          />{' '}
+          {signupButton}
+        </p>
+      ) : null}
     </div>
   );
 };
