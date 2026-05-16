@@ -18,7 +18,10 @@ class ContentSecurityPolicy
   def sso_host
     return unless OmniauthOidcDirect.form_action_csp_required?
 
-    provider = Devise.omniauth_configs[Devise.omniauth_providers[0]]
+    key = Devise.omniauth_providers[0]
+    provider = Devise.omniauth_configs[key]
+    return if provider.blank?
+
     @sso_host ||= begin
       case provider.provider
       when :cas

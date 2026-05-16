@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
   helper_method :single_user_mode?
   helper_method :use_seamless_external_login?
   helper_method :sso_account_settings
+  helper_method :show_sso_account_settings_link?
   helper_method :limited_federation_mode?
   helper_method :skip_csrf_meta_tags?
 
@@ -163,7 +164,14 @@ class ApplicationController < ActionController::Base
   end
 
   def sso_account_settings
-    ENV.fetch('SSO_ACCOUNT_SETTINGS', nil)
+    # OIDC-specific URL (e.g. Casdoor user settings); falls back to generic SSO setting.
+    ENV['OIDC_ACCOUNT_SETTINGS_URL'].presence || ENV.fetch('SSO_ACCOUNT_SETTINGS', nil)
+  end
+
+  def show_sso_account_settings_link?
+    return false if sso_account_settings.blank?
+
+    ENV['OIDC_ACCOUNT_SETTINGS_URL'].present? || ENV['OMNIAUTH_ONLY'] == 'true'
   end
 
   def current_account
