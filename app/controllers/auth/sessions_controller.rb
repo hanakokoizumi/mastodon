@@ -22,6 +22,15 @@ class Auth::SessionsController < Devise::SessionsController
     p.form_action(false)
   end
 
+  def new
+    if OmniauthOidcDirect.single_oidc_provider?
+      @oidc_authorize_path = omniauth_authorize_path(:user, User.omniauth_providers.first)
+      render :oidc_auto_post, layout: false
+    else
+      super
+    end
+  end
+
   def create
     super do |resource|
       # We only need to call this if this hasn't already been

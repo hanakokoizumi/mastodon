@@ -15,6 +15,29 @@ RSpec.describe Auth::SessionsController do
       get :new
       expect(response).to have_http_status(200)
     end
+
+    context 'when OpenID Connect is the only sign-in method' do
+      around do |example|
+        ClimateControl.modify OMNIAUTH_ONLY: 'true' do
+          example.run
+        end
+      end
+
+      before do
+        allow(Rails.configuration.x.omniauth).to receive(:oidc_enabled?).and_return(true)
+        allow(Devise).to receive(:omniauth_providers).and_return([:openid_connect])
+        allow(Devise.mappings[:user]).to receive(:omniauthable?).and_return(true)
+      end
+
+      it 'renders the OIDC auto-post page' do
+        get :new
+
+        expect(response).to have_http_status(200)
+        expect(response.body).to include('id="oidc-sso-form"')
+        expect(response.body).to include('/oidc-sso-submit.js')
+        expect(response.body).to match(%r{action="[^"]*openid_connect})
+      end
+    end
   end
 
   describe 'DELETE #destroy' do

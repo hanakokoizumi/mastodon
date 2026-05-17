@@ -1251,6 +1251,8 @@ zh-CN:
     link_to_webauth: 使用你的安全密钥设备
     log_in_with: 通过外部服务登录
     login: 登录
+    oidc_redirecting: 正在跳转至登录页面…
+    oidc_redirecting_noscript_html: 自动登录需要启用 JavaScript，或使用下方按钮继续。
     logout: 退出登录
     migrate_account: 迁移到另一个账号
     migrate_account_html: 如果你希望引导他人关注另一个账号，请<a href="%{path}">点击这里进行设置</a>。
