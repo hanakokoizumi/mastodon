@@ -2,6 +2,12 @@ shared:
   deepl:
     api_key: <%= ENV.fetch('DEEPL_API_KEY', nil)&.to_json %>
     plan: <%= ENV.fetch('DEEPL_PLAN', 'free') %>
+  openai_compatible:
+    api_key: <%= ENV.fetch('OPENAI_COMPATIBLE_TRANSLATION_API_KEY', nil)&.to_json %>
+    display_name: <%= ENV.fetch('OPENAI_COMPATIBLE_TRANSLATION_DISPLAY_NAME', nil)&.to_json %>
+    endpoint: <%= ENV.fetch('OPENAI_COMPATIBLE_TRANSLATION_ENDPOINT', nil)&.to_json %>
+    model: <%= ENV.fetch('OPENAI_COMPATIBLE_TRANSLATION_MODEL', nil)&.to_json %>
+    supported_languages: <%= ENV.fetch('OPENAI_COMPATIBLE_TRANSLATION_SUPPORTED_LANGUAGES', nil)&.to_json %>
   libre_translate:
     api_key: <%= ENV.fetch('LIBRE_TRANSLATE_API_KEY', nil)&.to_json %>
     endpoint: <%= ENV.fetch('LIBRE_TRANSLATE_ENDPOINT', nil)&.to_json %>
