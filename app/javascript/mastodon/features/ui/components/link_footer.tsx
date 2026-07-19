@@ -2,6 +2,7 @@ import { FormattedMessage } from 'react-intl';
 
 import { Link } from 'react-router-dom';
 
+import { NightcordWhisper } from '@/mastodon/nightcord/components/whisper';
 import {
   domain,
   version,
@@ -12,7 +13,6 @@ import {
 } from 'mastodon/initial_state';
 
 import classes from './link_footer.module.scss';
-import { NightcordWhisper } from './nightcord_whisper';
 
 export const LinkFooter: React.FC<{
   context?: 'default' | 'multi-column' | 'about';
@@ -81,26 +81,8 @@ export const LinkFooter: React.FC<{
         </ul>
       </section>
       <section>
-        <h2 className={classes.heading}>Mastodon:</h2>
+        {/* Keep shortcuts + AGPL source/version; drop joinmastodon promo links. */}
         <ul className={classes.list}>
-          <li>
-            <a href='https://joinmastodon.org' target='_blank' rel='noopener'>
-              <FormattedMessage id='footer.about' defaultMessage='About' />
-              <span className='sr-only'> Mastodon</span>
-            </a>
-          </li>
-          <li>
-            <a
-              href='https://joinmastodon.org/apps'
-              target='_blank'
-              rel='noopener'
-            >
-              <FormattedMessage
-                id='footer.get_app'
-                defaultMessage='Get the app'
-              />
-            </a>
-          </li>
           <li>
             <Link to='/keyboard-shortcuts'>
               <FormattedMessage

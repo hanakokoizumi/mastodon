@@ -100,7 +100,7 @@ class About extends PureComponent {
             <p className='about__header__tagline'>
               <FormattedMessage
                 id='about.call_room_tagline'
-                defaultMessage='25:00 · a quiet call room on the fediverse'
+                defaultMessage='25-ji · a quiet call room on the fediverse'
               />
             </p>
             <p><FormattedMessage id='about.powered_by' defaultMessage='A late-night corner of the fediverse, powered by {mastodon}' values={{ mastodon: <a href='https://joinmastodon.org' className='about__mail' target='_blank' rel='noopener'>Mastodon</a> }} /></p>

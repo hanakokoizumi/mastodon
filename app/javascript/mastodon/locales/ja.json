@@ -873,7 +873,7 @@
   "server_banner.about_active_users": "過去30日間にこのサーバーを使用している人 (月間アクティブユーザー)",
   "server_banner.active_users": "人のアクティブユーザー",
   "server_banner.administered_by": "管理者",
-  "server_banner.is_one_of_many": "{domain} は、数々の独立したMastodonサーバーのうちのひとつです。サーバーに登録してFediverseのコミュニティに加わってみませんか。",
+  "server_banner.is_one_of_many": "{domain} は、数ある独立サーバーのうちのひとつ。静かな連合のたまり場です。",
   "server_banner.server_stats": "サーバーの情報",
   "sign_in_banner.create_account": "アカウント作成",
   "sign_in_banner.follow_anyone": "連合の誰でもフォローして、時系列で読める。アルゴリズムも広告もクリックベイトもない。ただ、静かに流れる時間だけ。",
