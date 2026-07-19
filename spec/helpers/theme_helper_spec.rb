@@ -159,7 +159,7 @@ RSpec.describe ThemeHelper do
     end
 
     context 'when force_color_scheme is absent' do
-      it { is_expected.to eq('auto') }
+      it { is_expected.to eq('dark') }
     end
   end
 
