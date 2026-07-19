@@ -86,7 +86,6 @@ class About extends PureComponent {
       <Column bindToDocument={!multiColumn} label={intl.formatMessage(messages.title)}>
         <div className='scrollable about about--call-room' id={getColumnSkipLinkId(1)}>
           <div className='about__header'>
-            <div className='about__header__signal' aria-hidden='true' />
             <ServerHeroImage
               withAltBadge
               alt={server.item?.thumbnail.description ?? ''}

@@ -9741,28 +9741,6 @@ noscript {
       position: relative;
     }
 
-    .about__header__signal {
-      width: 96px;
-      height: 96px;
-      margin: 0 auto 28px;
-      border-radius: 50%;
-      background:
-        radial-gradient(
-          circle at 50% 42%,
-          rgb(194 145 242 / 48%) 0%,
-          rgb(136 68 153 / 22%) 40%,
-          transparent 72%
-        ),
-        radial-gradient(
-          circle at 50% 50%,
-          rgb(61 54 89 / 35%) 0%,
-          transparent 75%
-        );
-      box-shadow:
-        0 0 0 1px rgb(194 145 242 / 16%),
-        0 0 64px rgb(136 68 153 / 20%);
-    }
-
     .about__header__hero {
       margin-bottom: 36px;
       border-radius: 12px;
