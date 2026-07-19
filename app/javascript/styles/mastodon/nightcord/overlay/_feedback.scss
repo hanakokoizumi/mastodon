@@ -1,0 +1,58 @@
+@use '../../variables' as *;
+
+// Toasts, flashes, announcements, dismissable banners.
+
+.notification-bar {
+  background: var(--nc-panel-bg);
+  color: var(--color-text-primary);
+  border: 1px solid var(--nc-panel-border);
+  border-radius: var(--nc-radius-md);
+  box-shadow: var(--nc-panel-shadow);
+  backdrop-filter: var(--nc-surface-blur);
+
+  &__action {
+    color: var(--color-text-brand);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+}
+
+.flash-message {
+  border-radius: var(--nc-radius-md);
+  border-color: color-mix(in oklab, var(--color-border-brand), transparent 40%);
+  background: color-mix(
+    in oklab,
+    var(--color-bg-brand-softest),
+    transparent 35%
+  );
+  backdrop-filter: blur(8px);
+}
+
+.dismissable-banner {
+  border-radius: var(--nc-radius-md);
+  border-color: var(--nc-panel-border);
+  background: color-mix(in oklab, var(--nc-panel-bg), transparent 5%);
+  backdrop-filter: blur(8px);
+}
+
+.announcements {
+  &__root {
+    background: color-mix(in oklab, var(--nc-panel-bg), transparent 5%);
+    border: 1px solid var(--nc-panel-border);
+    border-radius: var(--nc-radius-md);
+  }
+
+  &__mastodon {
+    opacity: 0.35;
+    filter: saturate(0.7) brightness(0.95);
+  }
+
+  .reactions-bar__item {
+    border-radius: var(--nc-radius-sm);
+  }
+}
+
+.regeneration-indicator,
+.empty-column-indicator {
+  letter-spacing: 0.02em;
+}

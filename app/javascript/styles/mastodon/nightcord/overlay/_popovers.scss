@@ -1,0 +1,110 @@
+@use '../../variables' as *;
+
+// Menus, privacy/visibility pickers, emoji-mart.
+
+.dropdown-menu,
+.popover-menu,
+.privacy-dropdown__dropdown,
+.language-dropdown__dropdown,
+.visibility-dropdown__dropdown,
+.emoji-picker-dropdown__menu {
+  background: var(--nc-panel-bg);
+  border: 1px solid var(--nc-panel-border);
+  border-radius: var(--nc-radius-md);
+  box-shadow: var(--nc-panel-shadow);
+  backdrop-filter: var(--nc-surface-blur);
+  overflow: hidden;
+}
+
+.dropdown-menu__item {
+  a,
+  button {
+    border-radius: var(--nc-radius-sm);
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background: color-mix(
+        in oklab,
+        var(--color-bg-secondary),
+        transparent 25%
+      );
+    }
+  }
+}
+
+.privacy-dropdown__option,
+.visibility-dropdown__option,
+.language-dropdown__option {
+  border-radius: var(--nc-radius-sm);
+
+  &:hover,
+  &:focus,
+  &.active {
+    background: color-mix(in oklab, var(--nc-n25, #849) 18%, transparent);
+    color: var(--color-text-primary);
+
+    .privacy-dropdown__option__content,
+    .visibility-dropdown__option__content,
+    strong {
+      color: inherit;
+    }
+  }
+
+  &.active {
+    box-shadow: inset 2px 0 0
+      color-mix(in oklab, var(--nc-n25, #849) 70%, transparent);
+  }
+}
+
+.emoji-picker-dropdown__menu {
+  .emoji-mart {
+    background: transparent;
+    border: 0;
+    color: var(--color-text-primary);
+  }
+
+  .emoji-mart-bar {
+    border-color: color-mix(
+      in oklab,
+      var(--color-border-primary),
+      transparent 30%
+    );
+    background: color-mix(in oklab, var(--color-bg-secondary), transparent 40%);
+  }
+
+  .emoji-mart-anchor-selected,
+  .emoji-mart-anchor:hover {
+    color: var(--color-text-brand);
+  }
+
+  .emoji-mart-anchor-bar {
+    background: color-mix(
+      in oklab,
+      var(--nc-n25, #849) 75%,
+      var(--color-text-brand)
+    );
+    height: 2px;
+    border-radius: 2px;
+  }
+
+  .emoji-mart-search input {
+    border-radius: var(--nc-radius-sm);
+    background: color-mix(in oklab, var(--color-bg-secondary), transparent 20%);
+    border-color: var(--nc-panel-border);
+  }
+
+  .emoji-mart-category-label span {
+    background: transparent;
+    color: var(--color-text-tertiary);
+    letter-spacing: 0.04em;
+  }
+}
+
+.emoji-picker-dropdown__modifiers__menu {
+  background: var(--nc-panel-bg);
+  border: 1px solid var(--nc-panel-border);
+  border-radius: var(--nc-radius-md);
+  backdrop-filter: var(--nc-surface-blur);
+}

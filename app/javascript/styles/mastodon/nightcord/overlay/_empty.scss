@@ -1,0 +1,49 @@
+// Call-room empty states
+.empty-column-indicator--call-room {
+  flex-direction: column;
+  gap: 18px;
+  min-height: min(52vh, 420px);
+  padding: 48px 28px;
+}
+
+.empty-column-indicator__signal {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      color-mix(in oklab, var(--nc-signal) 55%, transparent) 0%,
+      color-mix(in oklab, var(--nc-n25) 28%, transparent) 38%,
+      transparent 70%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      color-mix(in oklab, var(--color-bg-primary) 40%, transparent) 0%,
+      transparent 72%
+    );
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--nc-signal) 18%, transparent),
+    0 0 48px color-mix(in oklab, var(--nc-n25) 22%, transparent);
+  animation: nightcord-signal-breathe 5.5s ease-in-out infinite;
+}
+
+@keyframes nightcord-signal-breathe {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(1.04);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .empty-column-indicator__signal {
+    animation: none;
+  }
+}

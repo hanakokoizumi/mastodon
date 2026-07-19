@@ -1,0 +1,75 @@
+@use '../../variables' as *;
+
+// Timeline: quieter “message” rhythm without card-per-status.
+@media screen and (min-width: $no-gap-breakpoint) {
+  .layout-single-column {
+    .status {
+      padding-block: 16px;
+      border-bottom-color: color-mix(
+        in oklab,
+        var(--color-border-primary),
+        transparent 42%
+      );
+      transition: background-color 0.15s ease;
+
+      &:hover {
+        background: color-mix(
+          in oklab,
+          var(--color-bg-secondary),
+          transparent 58%
+        );
+      }
+    }
+
+    .status__info {
+      .status__display-name {
+        letter-spacing: 0.01em;
+      }
+    }
+
+    .status__action-bar {
+      opacity: 0.72;
+      margin-top: 6px;
+      transition: opacity 0.15s ease;
+
+      .status:hover &,
+      .status:focus-within & {
+        opacity: 0.95;
+      }
+
+      .icon-button {
+        transition:
+          opacity 0.15s ease,
+          color 0.15s ease,
+          background-color 0.15s ease;
+
+        &:hover,
+        &:focus-visible {
+          opacity: 1;
+        }
+      }
+    }
+
+    .detailed-status {
+      border-radius: 0 0 var(--nc-radius-md) var(--nc-radius-md);
+      padding-block: 18px;
+    }
+
+    .status__content {
+      line-height: 1.58;
+      letter-spacing: 0.012em;
+      font-size: 15px;
+    }
+
+    .status__prepend {
+      opacity: 0.85;
+      letter-spacing: 0.02em;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .layout-single-column .status {
+    transition: none;
+  }
+}

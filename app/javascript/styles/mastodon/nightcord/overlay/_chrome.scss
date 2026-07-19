@@ -1,0 +1,192 @@
+@use '../../variables' as *;
+
+// Global chrome: buttons, headers, compose activates, filter bars.
+
+.button,
+button.button {
+  border-radius: var(--nc-radius-sm);
+  letter-spacing: 0.02em;
+  font-weight: 600;
+
+  // Soft Nightcord CTA — still brand-tinted, not stock indigo brick.
+  background-color: color-mix(
+    in oklab,
+    var(--nc-n25, #849) 78%,
+    var(--color-bg-brand-base)
+  );
+  border: 1px solid color-mix(in oklab, var(--nc-n25, #849) 35%, transparent);
+  box-shadow: inset 0 1px 0 color-mix(in oklab, white 12%, transparent);
+
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: color-mix(
+      in oklab,
+      var(--nc-n25, #849) 88%,
+      var(--color-bg-brand-base-hover)
+    );
+  }
+
+  &--compact {
+    border-radius: var(--nc-radius-sm);
+  }
+
+  &.button-secondary {
+    background: transparent;
+    color: var(--color-text-primary);
+    border-color: var(--nc-panel-border);
+    box-shadow: none;
+
+    &:active,
+    &:focus,
+    &:hover {
+      background: color-mix(
+        in oklab,
+        var(--color-bg-secondary),
+        transparent 25%
+      );
+    }
+  }
+
+  &--plain {
+    box-shadow: none;
+    border-color: transparent;
+  }
+}
+
+.help-button {
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--nc-n25, #849) 70%, transparent);
+}
+
+.icon-button {
+  border-radius: var(--nc-radius-sm);
+}
+
+.column-header,
+.column-back-button {
+  letter-spacing: 0.03em;
+  font-weight: 600;
+  border-color: color-mix(
+    in oklab,
+    var(--color-border-primary),
+    transparent 20%
+  );
+}
+
+.column-header {
+  background: color-mix(in oklab, var(--nc-panel-bg), transparent 8%);
+
+  &.active .column-header__icon {
+    text-shadow: none;
+    color: var(--color-text-brand);
+  }
+}
+
+.column-back-button {
+  color: var(--color-text-secondary);
+
+  &:hover,
+  &:focus-visible {
+    color: var(--color-text-primary);
+  }
+}
+
+// Compose toolbar: quiet active chips instead of solid brand bricks
+.compose-form__actions .icon-button.active,
+.compose-form .dropdown-button.active {
+  background: color-mix(in oklab, var(--nc-n25, #849) 22%, transparent);
+  color: var(--color-text-brand);
+  box-shadow: inset 0 0 0 1px
+    color-mix(in oklab, var(--nc-n25, #849) 40%, transparent);
+}
+
+.compose-form__highlightable {
+  border-radius: var(--nc-radius-md);
+}
+
+.compose-form__warning,
+.spoiler-input__input {
+  border-radius: var(--nc-radius-sm);
+}
+
+.character-counter {
+  letter-spacing: 0.02em;
+  color: var(--color-text-tertiary);
+}
+
+// Notification / profile section filters — soft underline, not brick bar
+.notification__filter-bar,
+.account__section-headline {
+  border-color: color-mix(
+    in oklab,
+    var(--color-border-primary),
+    transparent 25%
+  );
+
+  button.active,
+  a.active {
+    color: var(--color-text-brand);
+    font-weight: 600;
+
+    &::before {
+      width: 28px;
+      height: 2px;
+      border-radius: 2px;
+      background: color-mix(
+        in oklab,
+        var(--nc-n25, #849) 70%,
+        var(--color-text-brand)
+      );
+    }
+  }
+}
+
+// Follow suggestions strip
+.inline-follow-suggestions {
+  background: color-mix(in oklab, var(--nc-panel-bg), transparent 10%);
+  border-color: var(--nc-panel-border);
+
+  &__body__scroll-button__icon {
+    background: color-mix(
+      in oklab,
+      var(--nc-n25, #849) 55%,
+      var(--color-bg-primary)
+    );
+    border: 1px solid var(--nc-panel-border);
+  }
+}
+
+.load-more {
+  border-radius: var(--nc-radius-sm);
+  letter-spacing: 0.02em;
+}
+
+.account__domain-pill.active {
+  background: color-mix(in oklab, var(--nc-n25, #849) 28%, transparent);
+  color: var(--color-text-brand);
+}
+
+// Search popout: denser glass so underlying cards don't bleed through
+.search__popout {
+  background: var(--nc-elevated-bg);
+  border-color: var(--nc-panel-border);
+  border-radius: 0 0 var(--nc-radius-md) var(--nc-radius-md);
+  backdrop-filter: var(--nc-elevated-blur);
+  -webkit-backdrop-filter: var(--nc-elevated-blur);
+  box-shadow: var(--dropdown-shadow);
+}
+
+// Explore column search — match shell search language
+.explore__search-header {
+  border-color: color-mix(
+    in oklab,
+    var(--color-border-primary),
+    transparent 25%
+  );
+}
+
+.account__relationship .button,
+.explore-suggestions-card .button {
+  border-radius: var(--nc-radius-sm);
+}

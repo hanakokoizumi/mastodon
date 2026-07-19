@@ -1,0 +1,49 @@
+.about--call-room {
+  padding-top: 36px;
+
+  .about__header {
+    margin-bottom: 42px;
+    position: relative;
+  }
+
+  .about__header__hero {
+    margin-bottom: 36px;
+    border-radius: var(--nc-radius-lg);
+    opacity: 0.92;
+    filter: saturate(0.85) brightness(0.92);
+    box-shadow: var(--nc-panel-shadow);
+  }
+
+  .about__header__hero img {
+    border-radius: inherit;
+  }
+
+  .about__header__tagline {
+    margin: 0 auto 14px;
+    max-width: 28em;
+    font-size: 15px;
+    line-height: 1.55;
+    letter-spacing: var(--nc-font-display-tracking);
+    color: var(--color-text-tertiary);
+  }
+
+  .about__meta {
+    border-color: color-mix(
+      in oklab,
+      var(--color-border-primary),
+      transparent 25%
+    );
+    background: color-mix(in oklab, var(--color-bg-secondary), transparent 35%);
+    border-radius: var(--nc-radius-md);
+    backdrop-filter: var(--nc-surface-blur);
+  }
+
+  .about__section {
+    border-radius: var(--nc-radius-md);
+    border-color: color-mix(
+      in oklab,
+      var(--color-border-primary),
+      transparent 20%
+    );
+  }
+}

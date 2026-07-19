@@ -1,0 +1,35 @@
+// Nightcord UI font: cold system stack with CJK coverage (no Roboto download).
+// Keeps the mastodon-font-sans-serif family name so upstream $font-sans-serif works.
+
+@font-face {
+  font-family: mastodon-font-sans-serif;
+  src:
+    local('IBM Plex Sans'), local('Noto Sans CJK JP'), local('Noto Sans JP'),
+    local('Hiragino Sans'), local('Hiragino Kaku Gothic ProN'),
+    local('PingFang SC'), local('Microsoft YaHei'), local('Segoe UI'),
+    local('Helvetica Neue');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: mastodon-font-sans-serif;
+  src:
+    local('IBM Plex Sans Italic'), local('Segoe UI Italic'),
+    local('Helvetica Neue Italic');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: mastodon-font-display;
+  src:
+    local('IBM Plex Sans Medium'), local('IBM Plex Sans'),
+    local('Noto Sans JP'), local('Hiragino Sans'), local('PingFang SC'),
+    local('Segoe UI Semibold');
+  font-weight: 500 700;
+  font-style: normal;
+  font-display: swap;
+}

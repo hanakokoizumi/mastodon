@@ -1,0 +1,59 @@
+// Nightcord design tokens (merge-safe; extend upstream --color-* ).
+
+:root {
+  --nc-radius-sm: 6px;
+  --nc-radius-md: 10px;
+  --nc-radius-lg: 14px;
+  --nc-gap-panel: 12px;
+  --nc-n25: var(--color-n25, #849);
+  --nc-signal: var(--color-indigo-400);
+  --nc-panel-bg: var(--color-bg-primary);
+  --nc-panel-border: color-mix(
+    in oklab,
+    var(--color-border-primary),
+    transparent 20%
+  );
+  --nc-panel-shadow: 0 1px 0 color-mix(in oklab, white 4%, transparent);
+  --nc-font-display-tracking: 0.04em;
+  --nc-surface-blur: blur(18px);
+  --nc-elevated-blur: blur(28px) saturate(1.35);
+  --nc-elevated-bg: var(--nc-panel-bg);
+}
+
+[data-color-scheme='dark'] {
+  --nc-panel-bg: rgb(61 54 89 / 82%);
+  --nc-elevated-bg: rgb(48 42 72 / 94%);
+
+  // Pull stock indigo CTAs toward N25.
+  --color-bg-brand-base: color-mix(in oklab, #849 72%, #4a3d8f);
+  --color-bg-brand-base-hover: color-mix(
+    in oklab,
+    var(--color-bg-brand-base),
+    white 8%
+  );
+  --color-text-brand: color-mix(in oklab, #c291f2 55%, var(--color-indigo-400));
+  --color-border-brand: color-mix(
+    in oklab,
+    #849 45%,
+    var(--color-indigo-400)
+  );
+}
+
+[data-color-scheme='light'] {
+  // More see-through so wallpaper reads through side panels.
+  --nc-panel-bg: rgb(245 242 252 / 52%);
+  --nc-elevated-bg: rgb(250 248 255 / 94%);
+  --nc-panel-shadow: 0 1px 0 color-mix(in oklab, black 4%, transparent);
+  --color-bg-brand-base: color-mix(in oklab, #849 80%, #515297);
+  --color-bg-brand-base-hover: color-mix(
+    in oklab,
+    var(--color-bg-brand-base),
+    black 8%
+  );
+  --color-text-brand: color-mix(in oklab, #849 55%, var(--color-indigo-700));
+  --color-border-brand: color-mix(
+    in oklab,
+    #849 40%,
+    var(--color-indigo-600)
+  );
+}

@@ -1,0 +1,443 @@
+@use '../../variables' as *;
+
+// Unify /settings (and shared admin-wrapper) with the SPA home surface language.
+.admin-wrapper {
+  background: transparent;
+  padding-block: 16px;
+  gap: 0;
+  align-items: flex-start;
+
+  .sidebar-wrapper {
+    padding-block: 0;
+  }
+
+  .sidebar {
+    padding-inline-end: 12px;
+
+    // Wordmark card — same language as SPA navigation-panel__logo
+    &__logo {
+      display: flex;
+      align-items: center;
+      margin-bottom: var(--nc-gap-panel);
+      padding: 14px 16px;
+      background: var(--nc-panel-bg);
+      border: 1px solid var(--nc-panel-border);
+      border-radius: var(--nc-radius-md);
+      box-shadow: var(--nc-panel-shadow);
+      backdrop-filter: var(--nc-surface-blur);
+      text-decoration: none;
+      color: var(--color-text-primary);
+
+      .logo,
+      .logo--wordmark,
+      .logo--icon {
+        display: block;
+        margin: 0;
+        width: auto;
+        height: 28px;
+        max-width: 100%;
+        color: inherit;
+      }
+    }
+
+    &__toggle {
+      background: var(--nc-panel-bg);
+      border: 1px solid var(--nc-panel-border);
+      border-radius: var(--nc-radius-md);
+      box-shadow: var(--nc-panel-shadow);
+      backdrop-filter: var(--nc-surface-blur);
+      margin-bottom: var(--nc-gap-panel);
+
+      &__logo .logo--wordmark {
+        height: 28px;
+        width: auto;
+        margin: 0;
+        color: var(--color-text-primary);
+      }
+    }
+
+    // Nav lives under <nav>, not as a direct > ul child
+    > nav > ul {
+      background: var(--nc-panel-bg);
+      border: 1px solid var(--nc-panel-border);
+      border-radius: var(--nc-radius-md);
+      box-shadow: var(--nc-panel-shadow);
+      backdrop-filter: var(--nc-surface-blur);
+      overflow: hidden;
+      margin-bottom: var(--nc-gap-panel);
+      padding-block: 6px;
+
+      a {
+        margin-inline: 6px;
+        padding: 10px 12px;
+        border-radius: var(--nc-radius-sm);
+        letter-spacing: 0.02em;
+        gap: 8px;
+
+        &:hover {
+          background: color-mix(
+            in oklab,
+            var(--color-bg-secondary),
+            transparent 35%
+          );
+        }
+      }
+
+      ul a {
+        padding-inline-start: 28px;
+        margin-inline: 6px;
+      }
+
+      .simple-navigation-active-leaf a {
+        color: var(--color-text-brand);
+        background: color-mix(
+          in oklab,
+          var(--color-bg-brand-softest),
+          transparent 20%
+        );
+        font-weight: 600;
+      }
+    }
+  }
+
+  .content-wrapper {
+    padding-inline: 12px;
+  }
+
+  // Only the main settings panel — not nested .callout .content
+  .content-wrapper > .content {
+    background: var(--nc-panel-bg);
+    border: 1px solid var(--nc-panel-border);
+    border-radius: var(--nc-radius-md);
+    box-shadow: var(--nc-panel-shadow);
+    backdrop-filter: var(--nc-surface-blur);
+    padding: 28px 32px;
+    margin-bottom: var(--nc-gap-panel);
+
+    > h1,
+    .content__heading > h1 {
+      margin: 0;
+      letter-spacing: 0.03em;
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 1.3;
+      color: var(--color-text-primary);
+    }
+
+    h2,
+    h3,
+    h4 {
+      letter-spacing: 0.02em;
+      font-weight: 600;
+    }
+
+    // Upstream uses shouty uppercase section labels — quiet them down
+    :where(h2):not(.heading-medium),
+    .heading-small {
+      text-transform: none;
+      letter-spacing: 0.04em;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-text-tertiary);
+      padding-top: 20px;
+      margin-bottom: 10px;
+      border-top-color: color-mix(
+        in oklab,
+        var(--color-border-primary),
+        transparent 30%
+      );
+    }
+
+    .content__heading {
+      margin-bottom: 28px;
+      padding-bottom: 0;
+      border-bottom: 0;
+
+      &__row {
+        margin-top: 0;
+        margin-inline-end: 0;
+        gap: 12px;
+
+        & > * {
+          margin-top: 0;
+          margin-inline-end: 0;
+        }
+      }
+
+      // Segmented tabs — quiet selection, not solid brand bricks
+      &__tabs {
+        margin-top: 16px;
+        width: 100%;
+
+        & > div {
+          display: inline-flex;
+          flex-wrap: wrap;
+          gap: 4px;
+          padding: 4px;
+          background: color-mix(
+            in oklab,
+            var(--color-bg-secondary),
+            transparent 35%
+          );
+          border: 1px solid var(--nc-panel-border);
+          border-radius: var(--nc-radius-md);
+        }
+
+        a {
+          font-size: 13px;
+          display: inline-flex;
+          align-items: center;
+          padding: 8px 12px;
+          border-radius: var(--nc-radius-sm);
+          color: var(--color-text-secondary);
+          text-decoration: none;
+          font-weight: 500;
+          letter-spacing: 0.02em;
+          gap: 6px;
+          white-space: nowrap;
+          transition:
+            background-color 0.15s ease,
+            color 0.15s ease;
+
+          .icon {
+            opacity: 0.85;
+          }
+
+          &:hover,
+          &:focus-visible {
+            background: color-mix(
+              in oklab,
+              var(--color-bg-secondary),
+              transparent 15%
+            );
+            color: var(--color-text-primary);
+          }
+
+          &.selected {
+            font-weight: 600;
+            color: var(--color-text-brand);
+            background: color-mix(
+              in oklab,
+              var(--color-bg-brand-softest),
+              transparent 10%
+            );
+            box-shadow: inset 0 0 0 1px
+              color-mix(in oklab, var(--color-border-brand), transparent 55%);
+          }
+        }
+      }
+
+      &__actions {
+        .button {
+          border-radius: var(--nc-radius-sm);
+          min-height: 36px;
+          letter-spacing: 0.02em;
+        }
+      }
+    }
+
+    // Quiet notice — soft room tone, not loud brand pill
+    .callout {
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding: 14px 16px;
+      border-radius: var(--nc-radius-md);
+      border: 1px solid
+        color-mix(in oklab, var(--color-border-brand), transparent 55%);
+      background: color-mix(
+        in oklab,
+        var(--color-bg-brand-softest),
+        transparent 45%
+      );
+      backdrop-filter: blur(8px);
+      box-shadow: none;
+
+      .icon {
+        flex: 0 0 auto;
+        margin-block: 0;
+        padding: 6px;
+        width: 28px;
+        height: 28px;
+        border-radius: var(--nc-radius-sm);
+        background: color-mix(
+          in oklab,
+          var(--color-bg-brand-soft),
+          transparent 25%
+        );
+        color: var(--color-text-brand);
+      }
+
+      > .content {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        flex-grow: 1;
+        padding: 0;
+        margin: 0;
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        backdrop-filter: none;
+
+        @media screen and (width >= 630px) {
+          flex-direction: row;
+          align-items: center;
+        }
+      }
+
+      .title {
+        margin-bottom: 4px;
+        letter-spacing: 0.02em;
+      }
+
+      .body {
+        color: var(--color-text-secondary);
+        font-size: 14px;
+        line-height: 1.45;
+      }
+
+      a {
+        flex: 0 0 auto;
+        align-self: flex-start;
+        padding: 6px 10px;
+        border-radius: var(--nc-radius-sm);
+        color: var(--color-text-brand);
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-decoration: none;
+
+        @media screen and (width >= 630px) {
+          align-self: center;
+        }
+
+        &:hover {
+          background: color-mix(
+            in oklab,
+            var(--color-bg-brand-softest),
+            transparent 20%
+          );
+        }
+      }
+
+      &.variantWarning {
+        border-color: color-mix(
+          in oklab,
+          var(--color-border-warning, var(--color-bg-warning-soft)),
+          transparent 40%
+        );
+        background: color-mix(
+          in oklab,
+          var(--color-bg-warning-softest),
+          transparent 30%
+        );
+      }
+
+      &.variantError {
+        border-color: color-mix(
+          in oklab,
+          var(--color-border-error, var(--color-bg-error-soft)),
+          transparent 40%
+        );
+        background: color-mix(
+          in oklab,
+          var(--color-bg-error-softest),
+          transparent 30%
+        );
+      }
+    }
+
+    hr.spacer,
+    hr {
+      border: 0;
+      height: 1px;
+      margin: 24px 0;
+      background: color-mix(
+        in oklab,
+        var(--color-border-primary),
+        transparent 25%
+      );
+    }
+
+    .fields-group {
+      margin-bottom: 20px;
+    }
+
+    .simple_form {
+      button,
+      .button,
+      .btn {
+        border-radius: var(--nc-radius-sm);
+        min-height: 36px;
+        letter-spacing: 0.02em;
+      }
+
+      input[type='text'],
+      input[type='email'],
+      input[type='password'],
+      input[type='number'],
+      input[type='url'],
+      select,
+      textarea {
+        border-radius: var(--nc-radius-sm);
+        background: color-mix(
+          in oklab,
+          var(--color-bg-secondary),
+          transparent 25%
+        );
+        border-color: var(--nc-panel-border);
+      }
+
+      .radio_buttons .radio,
+      .check_boxes .checkbox,
+      .input.boolean label {
+        letter-spacing: 0.01em;
+      }
+    }
+
+    table {
+      border-radius: var(--nc-radius-md);
+      overflow: hidden;
+    }
+  }
+}
+
+// Settings pages: let wallpaper show through (override basics body.admin fill).
+body.admin {
+  background-color: transparent !important;
+  background-image: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .admin-wrapper .content-wrapper > .content .content__heading__tabs a {
+    transition: none;
+  }
+}
+
+@media screen and (max-width: $no-columns-breakpoint) {
+  .admin-wrapper {
+    .sidebar {
+      padding-inline-end: 0;
+
+      &__logo {
+        display: none;
+      }
+
+      > nav > ul.visible {
+        background: var(--nc-panel-bg);
+        backdrop-filter: var(--nc-surface-blur);
+      }
+    }
+
+    .content-wrapper > .content {
+      margin-inline: 0;
+      padding: 20px 16px;
+      border-radius: var(--nc-radius-md);
+
+      .content__heading__tabs > div {
+        width: 100%;
+      }
+    }
+  }
+}

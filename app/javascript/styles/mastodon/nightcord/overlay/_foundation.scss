@@ -1,0 +1,51 @@
+@use '../../variables' as *;
+
+// Cross-document view transitions: keep the prior frame (incl. wallpaper)
+// visible while the next settings/admin page paints — reduces wallpaper flash.
+@view-transition {
+  navigation: auto;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.18s;
+    animation-timing-function: ease;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
+// Typography + wallpaper atmosphere (merge-safe overrides).
+
+body {
+  font-size: 14px;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+}
+
+html::before {
+  background:
+    var(--bg-dim-overlay, transparent),
+    radial-gradient(
+      ellipse 70% 55% at 50% 38%,
+      transparent 32%,
+      rgb(16 10 30 / 48%) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgb(47 42 69 / 22%) 0%,
+      transparent 30%,
+      rgb(12 8 24 / 44%) 100%
+    );
+}
+
+html::after {
+  opacity: 0.055;
+}
