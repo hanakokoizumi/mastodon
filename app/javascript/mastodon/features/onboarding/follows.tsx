@@ -24,7 +24,7 @@ import { useAppSelector, useAppDispatch } from 'mastodon/store';
 const messages = defineMessages({
   title: {
     id: 'onboarding.follows.title',
-    defaultMessage: 'Follow people to get started',
+    defaultMessage: "Follow a few people to begin tonight's Nightcord",
   },
   search: { id: 'onboarding.follows.search', defaultMessage: 'Search' },
   back: { id: 'onboarding.follows.back', defaultMessage: 'Back' },

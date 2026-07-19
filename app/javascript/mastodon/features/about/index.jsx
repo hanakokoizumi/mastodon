@@ -97,7 +97,7 @@ class About extends PureComponent {
             <NavigationFocusTarget as='h1'>
               {isLoading ? <Skeleton width='10ch' /> : domain}
             </NavigationFocusTarget>
-            <p><FormattedMessage id='about.powered_by' defaultMessage='Decentralized social media powered by {mastodon}' values={{ mastodon: <a href='https://joinmastodon.org' className='about__mail' target='_blank' rel='noopener'>Mastodon</a> }} /></p>
+            <p><FormattedMessage id='about.powered_by' defaultMessage='A late-night corner of the fediverse, powered by {mastodon}' values={{ mastodon: <a href='https://joinmastodon.org' className='about__mail' target='_blank' rel='noopener'>Mastodon</a> }} /></p>
           </div>
 
           <div className='about__meta'>

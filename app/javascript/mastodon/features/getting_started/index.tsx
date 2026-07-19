@@ -19,7 +19,7 @@ const GettingStarted: React.FC = () => {
         <title>
           {intl.formatMessage({
             id: 'getting_started.heading',
-            defaultMessage: 'Getting started',
+            defaultMessage: 'See you at 25:00',
           })}
         </title>
         <meta name='robots' content='noindex' />

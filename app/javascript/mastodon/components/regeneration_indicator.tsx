@@ -14,7 +14,7 @@ export const RegenerationIndicator: React.FC = () => (
       <strong>
         <FormattedMessage
           id='regeneration_indicator.preparing_your_home_feed'
-          defaultMessage='Preparing your home feed…'
+          defaultMessage='Tuning into your feed…'
         />
       </strong>
       <FormattedMessage
