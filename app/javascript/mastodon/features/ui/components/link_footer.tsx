@@ -12,14 +12,17 @@ import {
 } from 'mastodon/initial_state';
 
 import classes from './link_footer.module.scss';
+import { NightcordWhisper } from './nightcord_whisper';
 
 export const LinkFooter: React.FC<{
   context?: 'default' | 'multi-column' | 'about';
 }> = ({ context = 'default' }) => {
   const multiColumn = context === 'multi-column';
+  const showWhisper = context === 'default' || context === 'multi-column';
 
   return (
     <footer className={classes.wrapper} data-context={context}>
+      {showWhisper && <NightcordWhisper />}
       <section>
         <h2 className={classes.heading}>{`${domain}:`}</h2>
         <ul className={classes.list}>
