@@ -24,7 +24,7 @@ import { useAppSelector, useAppDispatch } from 'mastodon/store';
 const messages = defineMessages({
   reply: { id: 'status.reply', defaultMessage: 'Reply' },
   replyAll: { id: 'status.replyAll', defaultMessage: 'Reply to thread' },
-  reblog: { id: 'status.reblog', defaultMessage: 'Boost' },
+  reblog: { id: 'status.reblog', defaultMessage: 'Forward' },
   reblog_private: {
     id: 'status.reblog_private',
     defaultMessage: 'Share again with your followers',
@@ -37,7 +37,7 @@ const messages = defineMessages({
     id: 'status.cannot_reblog',
     defaultMessage: 'This post cannot be boosted',
   },
-  favourite: { id: 'status.favourite', defaultMessage: 'Favorite' },
+  favourite: { id: 'status.favourite', defaultMessage: 'Save' },
   removeFavourite: {
     id: 'status.remove_favourite',
     defaultMessage: 'Remove from favorites',

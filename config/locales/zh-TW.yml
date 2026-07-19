@@ -7,7 +7,7 @@ zh-TW:
     contact_missing: 未設定
     contact_unavailable: 未公開
     default_thumbnail_description: 兩隻正在微笑的卡通風格長毛象 (看起來像是大象) 正在互相拋接紙飛機。他們被明亮的藍天與有著樹木和更多長毛象的漂浮行星群所包圍。
-    hosted_on: 於 %{domain} 託管之 Mastodon 站點
+    hosted_on: 於 %{domain} 託管之 Nightcord
     title: 關於本站
   accounts:
     errors:
@@ -1512,7 +1512,7 @@ zh-TW:
       subject: 確認您的電子郵件地址
       title: 是否想要收到來自 %{name} 之電子郵件通訊？
     notification:
-      create_account: 建立 Mastodon 帳號
+      create_account: 建立 Nightcord 帳號
       footer:
         privacy_html: 這些電子郵件由 Mastodon 伺服器 %{domain} 寄出。欲了解這台伺服器如何處理您的個人資料，請參考 <a href="%{privacy_policy_path}">隱私權政策</a>。
         reason_for_email_html: 您正收到這封電子郵件，因為您選擇收到來自 %{name} 之電子郵件通訊。不想再收到這些電子郵件？<a href="%{unsubscribe_path}">取消訂閱</a>
@@ -1555,7 +1555,7 @@ zh-TW:
       content: 抱歉，我們的後台出現問題了。
       title: 這個頁面有問題
     '503': 此頁面因伺服器暫時發生錯誤而無法提供。
-    noscript_html: 使用 Mastodon 網頁版應用需要啟用 JavaScript。您也可以選擇適用於您的平台的 <a href="%{apps_path}">Mastodon 應用</a>。
+    noscript_html: 使用 Nightcord 網頁版應用需要啟用 JavaScript。您也可以選擇適用於您的平台的 <a href="%{apps_path}">Mastodon 應用</a>。
   existing_username_validator:
     not_found: 無法於本伺服器找到此使用者帳號
     not_found_multiple: 揣嘸 %{usernames}
@@ -1815,7 +1815,7 @@ zh-TW:
     collection_update:
       title_html: "%{name} 已更新您所在之收藏名單"
     generic:
-      sign_in: 登入至 Mastodon 網頁應用程式
+      sign_in: 登入至 Nightcord 網頁應用程式
       summary_html: 您正在使用不支援 Mastodon 最新版本之應用程式。%{link} 如欲使用完整功能。
     moderation_warning:
       summary_html: 您正在使用不支援 Mastodon 最新版本之應用程式。%{link}。
@@ -2024,7 +2024,7 @@ zh-TW:
     aliases: 帳號別名
     appearance: 外觀設定
     authorized_apps: 已授權應用程式
-    back: 回到 Mastodon
+    back: 回到 Nightcord
     delete: 刪除帳號
     development: 開發者
     edit_profile: 編輯個人檔案

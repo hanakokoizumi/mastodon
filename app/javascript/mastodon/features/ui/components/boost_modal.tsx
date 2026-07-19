@@ -18,7 +18,7 @@ const messages = defineMessages({
     id: 'status.cancel_reblog_private',
     defaultMessage: 'Unboost',
   },
-  reblog: { id: 'status.reblog', defaultMessage: 'Boost' },
+  reblog: { id: 'status.reblog', defaultMessage: 'Forward' },
 });
 
 export const BoostModal: React.FC<{

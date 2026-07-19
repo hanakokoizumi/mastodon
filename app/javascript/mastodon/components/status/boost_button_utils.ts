@@ -39,7 +39,7 @@ export const messages = defineMessages({
     id: 'status.quote_private',
     defaultMessage: 'Private posts cannot be quoted',
   },
-  reblog: { id: 'status.reblog', defaultMessage: 'Boost' },
+  reblog: { id: 'status.reblog', defaultMessage: 'Forward' },
   reblog_or_quote: {
     id: 'status.reblog_or_quote',
     defaultMessage: 'Boost or quote',

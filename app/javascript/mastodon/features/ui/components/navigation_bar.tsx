@@ -28,7 +28,7 @@ import { selectUnreadNotificationGroupsCount } from 'mastodon/selectors/notifica
 import { useAppDispatch, useAppSelector } from 'mastodon/store';
 
 export const messages = defineMessages({
-  home: { id: 'tabs_bar.home', defaultMessage: 'Home' },
+  home: { id: 'tabs_bar.home', defaultMessage: 'Tonight' },
   search: { id: 'tabs_bar.search', defaultMessage: 'Search' },
   publish: { id: 'tabs_bar.publish', defaultMessage: 'New Post' },
   notifications: {

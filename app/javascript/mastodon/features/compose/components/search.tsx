@@ -36,7 +36,10 @@ import { useAppSelector, useAppDispatch } from 'mastodon/store';
 import { HASHTAG_REGEX } from 'mastodon/utils/hashtags';
 
 const messages = defineMessages({
-  placeholder: { id: 'search.placeholder', defaultMessage: 'Search' },
+  placeholder: {
+    id: 'search.placeholder',
+    defaultMessage: 'Find someone in the night…',
+  },
   clearSearch: { id: 'search.clear', defaultMessage: 'Clear search' },
   placeholderSignedIn: {
     id: 'search.search_or_paste',

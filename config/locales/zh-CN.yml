@@ -5,7 +5,7 @@ zh-CN:
     contact_missing: 未设置
     contact_unavailable: 未公开
     default_thumbnail_description: 两只微笑的卡通长毛象（看起来像大象）互相扔纸飞机。蔚蓝的穹顶之下，周遭环绕着林木葱郁的漂浮星球，成群的长毛象在其中伫立、繁衍生息。
-    hosted_on: 运行在 %{domain} 上的 Mastodon 实例
+    hosted_on: 运行在 %{domain} 上的 Nightcord
     title: 关于本站
   accounts:
     errors:
@@ -1341,7 +1341,7 @@ zh-CN:
     delete_account: 删除账号
     delete_account_html: 如果你想删除你的账号，请<a href="%{path}">点击此处继续</a>。你需要确认你的操作。
     description:
-      prefix_invited_by_user: "@%{name} 邀请你加入这个Mastodon服务器！"
+      prefix_invited_by_user: "@%{name} 邀请你加入这个 Nightcord 服务器！"
       prefix_sign_up: 今夜就加入 Nightcord 吧！
       suffix: 注册一个账号，你就可以关注他人、留下深夜的碎语，并和其他任何 Mastodon 服务器上的用户交流，而且还有其他更多功能！
     didnt_get_confirmation: 没有收到确认链接？
@@ -1384,7 +1384,7 @@ zh-CN:
     set_new_password: 设置新密码
     setup:
       email_below_hint_html: 请检查你的垃圾邮件文件夹，或请求重新发送邮件。如果你填写的邮箱地址有误，请更正。
-      email_settings_hint_html: 点击发送到 %{email} 的链接，即可开始使用 Mastodon。
+      email_settings_hint_html: 点击发送到 %{email} 的链接，即可开始使用 Nightcord。
       link_not_received: 没有收到链接？
       new_confirmation_instructions_sent: 你将在几分钟内收到一封带有确认链接的新邮件！
       title: 请检查你的收件箱
@@ -1393,7 +1393,7 @@ zh-CN:
       title: 登录到 %{domain}
     sign_up:
       manual_review: 你在 %{domain} 上的注册需要经由管理人员手动审核。 为了帮助我们处理你的注册，请简要说明你为什么想在 %{domain} 上注册。
-      preamble: 在这个 Mastodon 站点上注册一个账号，你就可以关注联邦宇宙中的任何人，无论他们的账号在哪里。
+      preamble: 在这个 Nightcord 站点上注册一个账号，你就可以关注联邦宇宙中的任何人，无论他们的账号在哪里。
       title: 让我们在 %{domain} 上开始。
     status:
       account_status: 账号状态
@@ -1509,7 +1509,7 @@ zh-CN:
       subject: 确认你的电子邮件地址
       title: 要接收来自 %{name} 的电子邮件推送吗？
     notification:
-      create_account: 创建 Mastodon 账号
+      create_account: 创建 Nightcord 账号
       footer:
         privacy_html: 电子邮件发送自 %{domain}，由 Mastodon 驱动的社区实例。要了解本站如何处理你的个人信息，请参见<a href="%{privacy_policy_path}">隐私政策</a>。
         reason_for_email_html: 你收到此邮件是因为你先前订阅了来自 %{name} 的嘟文邮件通知。不想再收到这些电子邮件？可以<a href="%{unsubscribe_path}">取消订阅</a>
@@ -1552,7 +1552,7 @@ zh-CN:
       content: 抱歉，服务器出现了一些故障。
       title: 页面无法正确加载
     '503': 服务器出现临时故障，无法加载页面。
-    noscript_html: 使用 Mastodon 网页版应用需要启用 JavaScript。你也可以选择适用于你的平台的 <a href="%{apps_path}">Mastodon 应用</a>。
+    noscript_html: 使用 Nightcord 网页版应用需要启用 JavaScript。你也可以选择适用于你的平台的 <a href="%{apps_path}">Mastodon 应用</a>。
   existing_username_validator:
     not_found: 在本站找不到此用户
     not_found_multiple: 找不到 %{usernames}
@@ -2021,7 +2021,7 @@ zh-CN:
     aliases: 账号别名
     appearance: 外观
     authorized_apps: 已授权的应用
-    back: 返回 Mastodon
+    back: 返回 Nightcord
     delete: 删除账号
     development: 开发
     edit_profile: 更改个人资料
@@ -2171,7 +2171,7 @@ zh-CN:
     recovery_codes_regenerated: 恢复代码重新生成成功
     recovery_instructions_html: 如果你的手机无法使用，你可以使用下列任意一个恢复代码来重新获得对账号的访问权。<strong>请妥善保管好你的恢复代码</strong>（例如，你可以将它们打印出来，然后和其他重要的文件放在一起）。
     resume_app_authorization: 恢复应用程序授权
-    role_requirement: "%{domain} 要求你设置双因素认证以使用 Mastodon。"
+    role_requirement: "%{domain} 要求你设置双因素认证以使用 Nightcord。"
     webauthn: 安全密钥
   unsubscriptions:
     create:
@@ -2212,7 +2212,7 @@ zh-CN:
       subtitle: 你的申诉已被驳回。
       title: 申诉已驳回
     backup_ready:
-      explanation: 你之前请求为你的 Mastodon 账号创建一份完整的备份。
+      explanation: 你之前请求为你的 Nightcord 账号创建一份完整的备份。
       extra: 现在它可以下载了！
       subject: 你的存档已经准备完毕
       title: 存档导出

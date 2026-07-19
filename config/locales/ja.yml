@@ -4,7 +4,7 @@ ja:
     about_mastodon_html: 深夜のたまり場——広告も企業監視もなく、倫理的で分散型のソーシャルネットワーク。25時になったら、またここで。オープンなウェブプロトコルを採用した自由なソフトウェア、Mastodonで動いています。
     contact_missing: 未設定
     contact_unavailable: N/A
-    hosted_on: Mastodon hosted on %{domain}
+    hosted_on: Nightcord hosted on %{domain}
     title: このサーバーについて
   accounts:
     errors:
@@ -1382,7 +1382,7 @@ ja:
       content: もうしわけありませんが、なにかが間違っています。
       title: このページは正しくありません
     '503': 一時的なサーバー障害のため利用することができません。
-    noscript_html: Mastodonのウェブアプリケーションを利用する場合はJavaScriptを有効にしてください。またはあなたのプラットフォーム向けの<a href="%{apps_path}">Mastodonネイティブアプリ</a>を探すことができます。
+    noscript_html: ナイトコードのウェブアプリケーションを利用する場合はJavaScriptを有効にしてください。またはあなたのプラットフォーム向けの<a href="%{apps_path}">Mastodonネイティブアプリ</a>を探すことができます。
   existing_username_validator:
     not_found: そのようなユーザー名はローカルに見つかりませんでした
     not_found_multiple: "%{usernames}さんは見つかりませんでした"
@@ -1805,7 +1805,7 @@ ja:
     aliases: アカウントエイリアス
     appearance: 外観
     authorized_apps: 認証済みアプリ
-    back: Mastodonに戻る
+    back: ナイトコードに戻る
     delete: アカウントの削除
     development: 開発
     edit_profile: プロフィールを編集

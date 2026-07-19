@@ -60,7 +60,7 @@ import { SignInBanner } from './components/sign_in_banner';
 import { Trends } from './components/trends';
 
 const messages = defineMessages({
-  home: { id: 'tabs_bar.home', defaultMessage: 'Home' },
+  home: { id: 'tabs_bar.home', defaultMessage: 'Tonight' },
   notifications: {
     id: 'tabs_bar.notifications',
     defaultMessage: 'Notifications',

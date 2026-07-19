@@ -30,7 +30,7 @@ import { Announcements } from './components/announcements';
 import { AnnualReportTimeline } from '../annual_report/timeline';
 
 const messages = defineMessages({
-  title: { id: 'column.home', defaultMessage: 'Home' },
+  title: { id: 'column.home', defaultMessage: 'Tonight' },
   show_announcements: { id: 'home.show_announcements', defaultMessage: 'Show announcements' },
   hide_announcements: { id: 'home.hide_announcements', defaultMessage: 'Hide announcements' },
 });
