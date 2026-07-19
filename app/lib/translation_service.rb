@@ -13,6 +13,15 @@ class TranslationService
         configuration.deepl[:plan],
         configuration.deepl[:api_key]
       )
+    elsif openai_compatible_configured?
+      c = configuration.openai_compatible || {}
+      TranslationService::OpenAiCompatible.new(
+        c[:endpoint],
+        c[:api_key],
+        c[:model],
+        c[:display_name],
+        c[:supported_languages]
+      )
     elsif configuration.libre_translate[:endpoint].present?
       TranslationService::LibreTranslate.new(
         configuration.libre_translate[:endpoint],
@@ -24,7 +33,12 @@ class TranslationService
   end
 
   def self.configured?
-    configuration.deepl[:api_key].present? || configuration.libre_translate[:endpoint].present?
+    configuration.deepl[:api_key].present? || openai_compatible_configured? || configuration.libre_translate[:endpoint].present?
+  end
+
+  def self.openai_compatible_configured?
+    c = configuration.openai_compatible || {}
+    c[:endpoint].present? && c[:model].present?
   end
 
   def self.configuration

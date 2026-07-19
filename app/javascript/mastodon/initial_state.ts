@@ -45,6 +45,7 @@ interface InitialStateMeta {
   use_pending_items?: boolean;
   version: string;
   sso_redirect: string;
+  sso_login_path?: string;
   status_page_url: string;
   terms_of_service_enabled: boolean;
   emoji_style?: string;
@@ -145,6 +146,7 @@ export const version = getMeta('version');
 export const criticalUpdatesPending = initialState?.critical_updates_pending;
 export const statusPageUrl = getMeta('status_page_url');
 export const sso_redirect = getMeta('sso_redirect');
+export const sso_login_path = getMeta('sso_login_path');
 export const termsOfServiceEnabled = getMeta('terms_of_service_enabled');
 export const wrapstodon = getMeta('wrapstodon');
 

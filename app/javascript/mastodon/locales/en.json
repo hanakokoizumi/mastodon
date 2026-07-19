@@ -1220,7 +1220,6 @@
   "sign_in_banner.follow_anyone": "Follow anyone across the fediverse and see it all in chronological order. No algorithms, ads, or clickbait in sight.",
   "sign_in_banner.mastodon_is": "Mastodon is the best way to keep up with what's happening.",
   "sign_in_banner.sign_in": "Login",
-  "sign_in_banner.sso_redirect": "Login or Register",
   "skip_links.hotkey": "<span>Hotkey</span> {hotkey}",
   "skip_links.skip_to_content": "Skip to main content",
   "skip_links.skip_to_navigation": "Skip to main navigation",

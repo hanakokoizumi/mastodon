@@ -11,6 +11,7 @@ class Auth::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
       if @user.persisted?
         record_login_activity
+        store_oidc_id_token_hint_for_logout(request.env['omniauth.auth'])
         sign_in_and_redirect @user, event: :authentication
         set_flash_message(:notice, :success, kind: label_for_provider) if is_navigational_format?
       else
@@ -45,6 +46,15 @@ class Auth::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       ip: request.remote_ip,
       user_agent: request.user_agent
     )
+  end
+
+  def store_oidc_id_token_hint_for_logout(auth)
+    return unless @provider.to_s == 'openid_connect'
+
+    token = auth.credentials[:id_token]
+    return if token.blank?
+
+    session[OmniAuth::Strategies::OpenidConnectEndSessionEnhancement::ID_TOKEN_HINT_SESSION_KEY] = token
   end
 
   def label_for_provider

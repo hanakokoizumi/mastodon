@@ -1373,6 +1373,8 @@ en:
     link_to_webauth: Use your security key device
     log_in_with: Log in with
     login: Log in
+    oidc_redirecting: Taking you to sign in…
+    oidc_redirecting_noscript_html: Automatic sign-in needs JavaScript. Use the button below to continue.
     logout: Logout
     migrate_account: Move to a different account
     migrate_account_html: If you wish to redirect this account to a different one, you can <a href="%{path}">configure it here</a>.

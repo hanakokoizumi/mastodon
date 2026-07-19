@@ -1,7 +1,8 @@
 - if !user.confirmed?
   .flash-message.warning
     = t('auth.status.confirming')
-    = link_to t('auth.didnt_get_confirmation'), new_user_confirmation_path
+    - unless OmniauthOidcDirect.single_oidc_provider?
+      = link_to t('auth.didnt_get_confirmation'), new_user_confirmation_path
 - elsif !user.approved?
   .flash-message.warning
     = t('auth.status.pending')

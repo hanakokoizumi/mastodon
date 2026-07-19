@@ -1,0 +1,15 @@
+!!!
+%html{ lang: I18n.locale }
+  %head
+    %meta{ charset: 'utf-8' }
+    %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' }
+    %meta{ name: 'robots', content: 'noindex' }
+    %title= t('auth.login')
+    = csrf_meta_tags
+  %body
+    %p{ role: 'status' }= t('auth.oidc_redirecting')
+    = form_with url: @oidc_authorize_path, method: :post, local: true, id: 'oidc-sso-form', data: { turbo: false } do
+      %noscript
+        %p= t('auth.oidc_redirecting_noscript_html')
+        = submit_tag t('auth.login')
+    %script{ src: '/oidc-sso-submit.js', defer: true }

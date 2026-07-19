@@ -9,6 +9,9 @@
   %ul.no-list
     - if user_signed_in?
       %li= link_to t('settings.account_settings'), edit_user_registration_path
+    - elsif OmniauthOidcDirect.single_oidc_provider?
+      - if controller_name != 'sessions'
+        %li= link_to "#{t('auth.login')}/#{t('auth.register')}", OmniauthOidcDirect.omniauth_authorize_href, data: { method: :post }
     - else
       - if controller_name != 'sessions'
         %li= link_to_login t('auth.login')

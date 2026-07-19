@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative '../lib/omniauth_oidc_direct'
+
 class InitialStateSerializer < ActiveModel::Serializer
   include RoutingHelper
 
@@ -121,6 +123,7 @@ class InitialStateSerializer < ActiveModel::Serializer
       single_user_mode: Rails.configuration.x.single_user_mode,
       source_url: instance_presenter.source_url,
       sso_redirect: sso_redirect,
+      sso_login_path: sso_login_path,
       status_page_url: Setting.status_page_url,
       streaming_api_base_url: Rails.configuration.x.streaming_api_base_url,
       title: instance_presenter.title,
@@ -149,5 +152,9 @@ class InitialStateSerializer < ActiveModel::Serializer
 
   def sso_redirect
     "/auth/auth/#{Devise.omniauth_providers[0]}" if ENV['ONE_CLICK_SSO_LOGIN'] == 'true' && ENV['OMNIAUTH_ONLY'] == 'true' && Devise.omniauth_providers.length == 1
+  end
+
+  def sso_login_path
+    OmniauthOidcDirect.omniauth_authorize_href
   end
 end

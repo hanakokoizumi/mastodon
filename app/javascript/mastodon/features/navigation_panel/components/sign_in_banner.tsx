@@ -3,7 +3,11 @@ import { useCallback } from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import { openModal } from 'mastodon/actions/modal';
-import { registrationsOpen, sso_redirect } from 'mastodon/initial_state';
+import {
+  registrationsOpen,
+  sso_redirect,
+  sso_login_path,
+} from 'mastodon/initial_state';
 import { useAppDispatch, useAppSelector } from 'mastodon/store';
 
 export const SignInBanner: React.FC = () => {
@@ -23,7 +27,9 @@ export const SignInBanner: React.FC = () => {
     (state) => state.server.server.item?.registrations.url ?? '/auth/sign_up',
   );
 
-  if (sso_redirect) {
+  const ssoCombinedPath = sso_redirect ?? sso_login_path;
+
+  if (ssoCombinedPath) {
     return (
       <div className='sign-in-banner'>
         <p>
@@ -41,13 +47,18 @@ export const SignInBanner: React.FC = () => {
           />
         </p>
         <a
-          href={sso_redirect}
+          href={ssoCombinedPath}
           data-method='post'
           className='button button--block button-secondary'
         >
           <FormattedMessage
-            id='sign_in_banner.sso_redirect'
-            defaultMessage='Login or Register'
+            id='sign_in_banner.sign_in'
+            defaultMessage='Login'
+          />
+          {'/'}
+          <FormattedMessage
+            id='sign_in_banner.create_account'
+            defaultMessage='Create account'
           />
         </a>
       </div>

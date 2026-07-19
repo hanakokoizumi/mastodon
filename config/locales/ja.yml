@@ -1221,6 +1221,8 @@ ja:
     link_to_webauth: セキュリティキーを使用する
     log_in_with: 次の方法でログイン
     login: ログイン
+    oidc_redirecting: ログイン画面へ移動しています…
+    oidc_redirecting_noscript_html: 自動ログインにはJavaScriptが必要です。下のボタンから続行してください。
     logout: ログアウト
     migrate_account: 別のアカウントに引っ越す
     migrate_account_html: 引っ越し先を明記したい場合は<a href="%{path}">こちら</a>で設定できます。

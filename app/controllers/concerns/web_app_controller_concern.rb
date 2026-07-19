@@ -22,7 +22,11 @@ module WebAppControllerConcern
   end
 
   def skip_csrf_meta_tags?
-    !(ENV['ONE_CLICK_SSO_LOGIN'] == 'true' && ENV['OMNIAUTH_ONLY'] == 'true' && Devise.omniauth_providers.length == 1) && current_user.nil?
+    sso_guest_landing =
+      (ENV['ONE_CLICK_SSO_LOGIN'] == 'true' && ENV['OMNIAUTH_ONLY'] == 'true' && Devise.omniauth_providers.length == 1) ||
+      OmniauthOidcDirect.single_oidc_provider?
+
+    !sso_guest_landing && current_user.nil?
   end
 
   def redirect_unauthenticated_to_permalinks!

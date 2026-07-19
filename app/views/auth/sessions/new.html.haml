@@ -44,8 +44,11 @@
       %h2= t('auth.or_log_in_with')
 
     .actions
-      - resource_class.omniauth_providers.each do |provider|
-        = provider_sign_in_link(provider)
+      - if OmniauthOidcDirect.single_oidc_provider?
+        = link_to "#{t('auth.login')}/#{t('auth.register')}", OmniauthOidcDirect.omniauth_authorize_href, class: "btn button-#{resource_class.omniauth_providers.first}", data: { method: :post }
+      - else
+        - resource_class.omniauth_providers.each do |provider|
+          = provider_sign_in_link(provider)
 
 - unless within_authorization_flow?
   .form-footer= render 'auth/shared/links'
