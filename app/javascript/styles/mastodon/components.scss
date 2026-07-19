@@ -3164,7 +3164,7 @@ a.account__display-name {
 }
 
 .tabs-bar__wrapper {
-  // Shell stays clear; the rounded column fill comes from panels__main::before.
+  // Keep the shell clear so the 10px gap above the title shows wallpaper.
   background: transparent;
   position: sticky;
   top: 0;
@@ -3172,14 +3172,13 @@ a.account__display-name {
   border-top: 0;
 
   @media screen and (min-width: $no-gap-breakpoint) {
-    // Keep a wallpaper gap above the bar while stuck.
+    // Stick below the wallpaper gap.
     top: 10px;
 
     .column-header,
     .column-back-button {
-      // Avoid stacking another translucent layer on top of ::before.
-      background: transparent;
-      backdrop-filter: none;
+      background: var(--color-bg-primary);
+      backdrop-filter: $backdrop-blur-filter;
       border-radius: 4px 4px 0 0;
     }
   }
@@ -3851,6 +3850,112 @@ a.account__display-name {
   @media screen and (height <= (930px - 56px * 3)) {
     &__portal {
       display: none;
+    }
+  }
+}
+
+// Dark single-column: give each sidebar block the same frosted fill + border
+// as the center column card.
+[data-color-scheme='dark'] {
+  @media screen and (min-width: $no-gap-breakpoint) {
+    .layout-single-column {
+      .navigation-panel {
+        .search,
+        .navigation-bar,
+        .navigation-panel__logo,
+        .navigation-panel__menu,
+        .navigation-panel__portal {
+          background: var(--color-bg-primary);
+          border: 1px solid var(--color-border-primary);
+          border-radius: 4px;
+        }
+
+        .search {
+          margin-inline: 0;
+          margin-bottom: 12px;
+          padding: 0;
+
+          .search__input {
+            background: transparent;
+            border-color: transparent;
+          }
+        }
+
+        .navigation-bar {
+          margin-bottom: 12px;
+        }
+
+        .navigation-panel__logo {
+          margin-bottom: 12px;
+          overflow: hidden;
+        }
+
+        .navigation-panel__menu {
+          margin-bottom: 12px;
+          padding-block: 4px;
+          overflow: hidden;
+        }
+
+        .navigation-panel__portal {
+          margin-top: 0;
+          overflow: hidden;
+
+          .getting-started__trends {
+            margin-top: 0;
+          }
+        }
+      }
+
+      .compose-panel {
+        > .search,
+        > .server-banner,
+        > footer {
+          background: var(--color-bg-primary);
+          border: 1px solid var(--color-border-primary);
+          border-radius: 4px;
+        }
+
+        > .search {
+          margin-bottom: 12px;
+          padding: 0;
+
+          .search__input {
+            background: transparent;
+            border-color: transparent;
+          }
+        }
+
+        > .compose-form {
+          // Keep the form shell transparent; card each section separately.
+          background: transparent;
+          border: 0;
+          padding: 0;
+          margin-bottom: 12px;
+          gap: 12px;
+
+          > .navigation-bar {
+            background: var(--color-bg-primary);
+            border: 1px solid var(--color-border-primary);
+            border-radius: 4px;
+            padding: 12px;
+          }
+
+          > .compose-form__highlightable {
+            background: var(--color-bg-primary);
+            border: 1px solid var(--color-border-primary);
+            border-radius: 4px;
+          }
+        }
+
+        > .server-banner {
+          margin-bottom: 12px;
+          padding: 12px;
+        }
+
+        > footer {
+          margin-bottom: 12px;
+        }
+      }
     }
   }
 }
