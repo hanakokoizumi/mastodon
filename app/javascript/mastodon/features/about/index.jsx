@@ -84,8 +84,9 @@ class About extends PureComponent {
 
     return (
       <Column bindToDocument={!multiColumn} label={intl.formatMessage(messages.title)}>
-        <div className='scrollable about' id={getColumnSkipLinkId(1)}>
+        <div className='scrollable about about--call-room' id={getColumnSkipLinkId(1)}>
           <div className='about__header'>
+            <div className='about__header__signal' aria-hidden='true' />
             <ServerHeroImage
               withAltBadge
               alt={server.item?.thumbnail.description ?? ''}
@@ -97,6 +98,12 @@ class About extends PureComponent {
             <NavigationFocusTarget as='h1'>
               {isLoading ? <Skeleton width='10ch' /> : domain}
             </NavigationFocusTarget>
+            <p className='about__header__tagline'>
+              <FormattedMessage
+                id='about.call_room_tagline'
+                defaultMessage='25:00 · a quiet call room on the fediverse'
+              />
+            </p>
             <p><FormattedMessage id='about.powered_by' defaultMessage='A late-night corner of the fediverse, powered by {mastodon}' values={{ mastodon: <a href='https://joinmastodon.org' className='about__mail' target='_blank' rel='noopener'>Mastodon</a> }} /></p>
           </div>
 

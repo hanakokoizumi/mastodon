@@ -5337,7 +5337,7 @@ a.status-card {
   align-items: center;
   justify-content: center;
 
-  & > span {
+  & > span:not(.empty-column-indicator__signal) {
     max-width: 500px;
   }
 
@@ -5348,6 +5348,55 @@ a.status-card {
     &:hover {
       text-decoration: underline;
     }
+  }
+
+  &--call-room {
+    flex-direction: column;
+    gap: 18px;
+    min-height: min(52vh, 420px);
+    padding: 48px 28px;
+  }
+
+  &__signal {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    flex: 0 0 auto;
+    background:
+      radial-gradient(
+        circle at 50% 45%,
+        rgb(194 145 242 / 55%) 0%,
+        rgb(136 68 153 / 28%) 38%,
+        transparent 70%
+      ),
+      radial-gradient(
+        circle at 50% 50%,
+        rgb(61 54 89 / 40%) 0%,
+        transparent 72%
+      );
+    box-shadow:
+      0 0 0 1px rgb(194 145 242 / 18%),
+      0 0 48px rgb(136 68 153 / 22%);
+    animation: nightcord-signal-breathe 5.5s ease-in-out infinite;
+  }
+}
+
+@keyframes nightcord-signal-breathe {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(1.04);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .empty-column-indicator__signal {
+    animation: none;
   }
 }
 
@@ -9682,6 +9731,66 @@ noscript {
 
   @media screen and (min-width: $no-gap-breakpoint) {
     border-radius: 4px;
+  }
+
+  &--call-room {
+    padding-top: 36px;
+
+    .about__header {
+      margin-bottom: 42px;
+      position: relative;
+    }
+
+    .about__header__signal {
+      width: 96px;
+      height: 96px;
+      margin: 0 auto 28px;
+      border-radius: 50%;
+      background:
+        radial-gradient(
+          circle at 50% 42%,
+          rgb(194 145 242 / 48%) 0%,
+          rgb(136 68 153 / 22%) 40%,
+          transparent 72%
+        ),
+        radial-gradient(
+          circle at 50% 50%,
+          rgb(61 54 89 / 35%) 0%,
+          transparent 75%
+        );
+      box-shadow:
+        0 0 0 1px rgb(194 145 242 / 16%),
+        0 0 64px rgb(136 68 153 / 20%);
+    }
+
+    .about__header__hero {
+      margin-bottom: 36px;
+      border-radius: 12px;
+      opacity: 0.92;
+      filter: saturate(0.85) brightness(0.92);
+    }
+
+    .about__header__tagline {
+      margin: 0 auto 14px;
+      max-width: 28em;
+      font-size: 15px;
+      line-height: 1.55;
+      letter-spacing: 0.04em;
+      color: var(--color-text-tertiary);
+    }
+
+    .about__meta {
+      border-color: color-mix(
+        in oklab,
+        var(--color-border-primary),
+        transparent 25%
+      );
+      background: color-mix(
+        in oklab,
+        var(--color-bg-secondary),
+        transparent 35%
+      );
+    }
   }
 
   &__footer {

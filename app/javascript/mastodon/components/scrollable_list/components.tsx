@@ -40,7 +40,8 @@ export const ItemList = forwardRef<
 >(({ isLoading, emptyMessage, className, children, ...otherProps }, ref) => {
   if (!isLoading && !hasReactChildren(children) && emptyMessage) {
     return (
-      <div className='empty-column-indicator'>
+      <div className='empty-column-indicator empty-column-indicator--call-room'>
+        <span className='empty-column-indicator__signal' aria-hidden='true' />
         <span>{emptyMessage}</span>
       </div>
     );
