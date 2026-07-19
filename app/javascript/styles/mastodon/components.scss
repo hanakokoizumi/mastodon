@@ -3056,6 +3056,39 @@ a.account__display-name {
 
       @media screen and (min-width: $no-gap-breakpoint) {
         max-width: 600px;
+        position: relative;
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        // Column fill is painted by ::before so top/bottom gaps stay clear
+        // and the fill can use border-radius without clipping sticky headers.
+        background-color: transparent;
+        background-image: none;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 10px;
+          right: 0;
+          bottom: 10px;
+          left: 0;
+          z-index: 0;
+          pointer-events: none;
+          border-radius: 4px;
+          background: var(--color-bg-primary);
+        }
+
+        > * {
+          position: relative;
+          z-index: 1;
+        }
+
+        // Upstream adds padding-bottom on the mobile columns area; that left a
+        // strip of fill below the column border. Outer panels__main padding
+        // owns the wallpaper gap instead.
+        .columns-area--mobile {
+          padding-bottom: 0;
+        }
       }
     }
   }
@@ -3131,15 +3164,24 @@ a.account__display-name {
 }
 
 .tabs-bar__wrapper {
-  background: var(--color-bg-primary);
-  backdrop-filter: $backdrop-blur-filter;
+  // Shell stays clear; the rounded column fill comes from panels__main::before.
+  background: transparent;
   position: sticky;
   top: 0;
   z-index: 2;
   border-top: 0;
 
   @media screen and (min-width: $no-gap-breakpoint) {
-    border-top: 10px solid var(--color-bg-primary);
+    // Keep a wallpaper gap above the bar while stuck.
+    top: 10px;
+
+    .column-header,
+    .column-back-button {
+      // Avoid stacking another translucent layer on top of ::before.
+      background: transparent;
+      backdrop-filter: none;
+      border-radius: 4px 4px 0 0;
+    }
   }
 }
 
