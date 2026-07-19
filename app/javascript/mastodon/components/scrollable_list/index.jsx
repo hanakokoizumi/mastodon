@@ -15,6 +15,8 @@ import IntersectionObserverArticleContainer from '../../containers/intersection_
 import { attachFullscreenListener, detachFullscreenListener, isFullscreen } from '../../features/ui/util/fullscreen';
 import IntersectionObserverWrapper from '../../features/ui/util/intersection_observer_wrapper';
 
+import { NightcordSignal } from '@/mastodon/nightcord/components/signal';
+
 import { LoadMore } from '../load_more';
 import { LoadPending } from '../load_pending';
 import { LoadingIndicator } from '../loading_indicator';
@@ -385,7 +387,7 @@ class ScrollableList extends PureComponent {
           {alwaysPrepend && prepend}
 
           <div className='empty-column-indicator empty-column-indicator--call-room'>
-            <span className='empty-column-indicator__signal' aria-hidden='true' />
+            <NightcordSignal />
             <span>{emptyMessage}</span>
           </div>
 

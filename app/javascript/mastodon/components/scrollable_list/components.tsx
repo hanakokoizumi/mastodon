@@ -3,6 +3,7 @@ import { forwardRef } from 'react';
 
 import classNames from 'classnames';
 
+import { NightcordSignal } from '@/mastodon/nightcord/components/signal';
 import { hasReactChildren } from '@/mastodon/utils/has_react_children';
 
 import { LoadingIndicator } from '../loading_indicator';
@@ -41,7 +42,7 @@ export const ItemList = forwardRef<
   if (!isLoading && !hasReactChildren(children) && emptyMessage) {
     return (
       <div className='empty-column-indicator empty-column-indicator--call-room'>
-        <span className='empty-column-indicator__signal' aria-hidden='true' />
+        <NightcordSignal />
         <span>{emptyMessage}</span>
       </div>
     );

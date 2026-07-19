@@ -1,0 +1,43 @@
+.whisper {
+  margin: 0 0 10px;
+  padding: 8px 10px;
+  font-size: 12px;
+  line-height: 1.55;
+  letter-spacing: var(--nc-font-display-tracking, 0.04em);
+
+  // Secondary (not tertiary) so the line stays readable on frosted panels.
+  color: var(--color-text-secondary);
+  user-select: none;
+  border-radius: var(--nc-radius-sm, 6px);
+  background: color-mix(in oklab, var(--nc-n25, #849) 14%, transparent);
+  border: 1px solid color-mix(in oklab, var(--nc-n25, #849) 26%, transparent);
+}
+
+:global([data-color-scheme='light']) {
+  .whisper {
+    // Ink the line toward N25 so it doesn't wash out on pale glass.
+    color: color-mix(
+      in oklab,
+      var(--nc-n25, #849) 42%,
+      var(--color-text-primary)
+    );
+    background: color-mix(in oklab, var(--nc-n25, #849) 16%, white);
+    border-color: color-mix(in oklab, var(--nc-n25, #849) 32%, transparent);
+  }
+}
+
+:global([data-color-scheme='dark']) {
+  .whisper {
+    color: color-mix(
+      in oklab,
+      var(--color-text-secondary) 65%,
+      var(--nc-signal, #858afa)
+    );
+    background: color-mix(in oklab, var(--nc-n25, #849) 18%, transparent);
+    border-color: color-mix(
+      in oklab,
+      var(--nc-signal, #858afa) 28%,
+      transparent
+    );
+  }
+}
