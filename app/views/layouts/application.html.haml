@@ -21,6 +21,7 @@
       %link{ rel: 'mask-icon', href: frontend_asset_path('images/logo-symbol-icon.svg'), color: '#884499' }/
     %link{ rel: 'manifest', href: manifest_path(format: :json) }/
     = javascript_inline_tag 'theme-selection.js'
+    = wallpaper_bootstrap_tags
     = theme_color_tags color_scheme
     %meta{ name: 'mobile-web-app-capable', content: 'yes' }/
 

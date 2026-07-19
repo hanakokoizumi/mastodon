@@ -11,8 +11,8 @@
     %header.sidebar-wrapper
       .sidebar-wrapper__inner
         .sidebar
-          = link_to root_path do
-            = render_logo
+          = link_to root_path, class: 'sidebar__logo' do
+            = logo_as_symbol(:wordmark)
 
           .sidebar__toggle
             .sidebar__toggle__logo

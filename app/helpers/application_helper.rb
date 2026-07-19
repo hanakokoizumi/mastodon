@@ -186,6 +186,25 @@ module ApplicationHelper
     output.compact_blank.join(' ')
   end
 
+  # Paint the Nightcord wallpaper before the main stylesheet arrives so
+  # full-page settings/admin navigations do not flash a blank background.
+  def wallpaper_bootstrap_tags
+    wallpaper_url = frontend_asset_path('images/background.webp')
+    css = <<~CSS.squish
+      html{background-color:#2f2a45;background-image:url("#{wallpaper_url}");background-repeat:no-repeat;background-position:center center;background-attachment:fixed;background-size:cover}
+      body.admin{background-color:transparent!important;background-image:none}
+    CSS
+
+    # rubocop:disable Rails/OutputSafety -- CSS string is built from a trusted asset path
+    safe_join(
+      [
+        tag.link(rel: 'preload', as: 'image', href: wallpaper_url, fetchpriority: 'high'),
+        tag.style(css.html_safe, nonce: request.content_security_policy_nonce),
+      ]
+    )
+    # rubocop:enable Rails/OutputSafety
+  end
+
   def cdn_host
     Rails.configuration.action_controller.asset_host
   end
