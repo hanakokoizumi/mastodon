@@ -1,7 +1,7 @@
 ---
 ja:
   about:
-    about_mastodon_html: Mastodonは、オープンなウェブプロトコルを採用した、自由でオープンソースなソーシャルネットワークです。電子メールのような分散型の仕組みを採っています。
+    about_mastodon_html: 深夜のたまり場——広告も企業監視もなく、倫理的で分散型のソーシャルネットワーク。25時になったら、またここで。オープンなウェブプロトコルを採用した自由なソフトウェア、Mastodonで動いています。
     contact_missing: 未設定
     contact_unavailable: N/A
     hosted_on: Mastodon hosted on %{domain}
@@ -1211,8 +1211,8 @@ ja:
     delete_account_html: アカウントを削除したい場合、<a href="%{path}">こちら</a>から手続きが行えます。削除する前に、確認画面があります。
     description:
       prefix_invited_by_user: "@%{name}さんがあなたをこのMastodonサーバーに招待しました"
-      prefix_sign_up: 今すぐMastodonを始めよう！
-      suffix: アカウントがあれば、どんなMastodon互換サーバーのユーザーでもフォローしたりメッセージをやり取りできるようになります！
+      prefix_sign_up: 今夜、ナイトコードを始めよう！
+      suffix: アカウントがあれば、だれかをフォローしたり、深夜のメモを残したり、どんなMastodon互換サーバーのユーザーともメッセージをやり取りできるようになります！
     didnt_get_confirmation: 確認メールを受信できない場合は
     dont_have_your_security_key: セキュリティキーを持っていませんか？
     forgot_password: パスワードをお忘れですか？

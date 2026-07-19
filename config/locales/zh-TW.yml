@@ -2,8 +2,8 @@
 zh-TW:
   about:
     about_mastodon_html: |-
-      社交網路的未來：無廣告、無企業監控、道德
-      去中心化設計！加入 Mastodon，擁有您的資料！
+      聯邦宇宙裡的深夜據點——無廣告、無企業監控、道德去中心化設計。
+      等到 25 點，再在這裡相見。加入 Mastodon，擁有您的資料。
     contact_missing: 未設定
     contact_unavailable: 未公開
     default_thumbnail_description: 兩隻正在微笑的卡通風格長毛象 (看起來像是大象) 正在互相拋接紙飛機。他們被明亮的藍天與有著樹木和更多長毛象的漂浮行星群所包圍。
@@ -1345,8 +1345,8 @@ zh-TW:
     delete_account_html: 如果您欲刪除您的帳號，請<a href="%{path}">點擊這裡繼續</a>。您需要再三確認您的操作。
     description:
       prefix_invited_by_user: "@%{name} 邀請您加入這個 Mastodon 伺服器！"
-      prefix_sign_up: 馬上註冊 Mastodon 帳號吧！
-      suffix: 有了帳號，就可以自任何 Mastodon 伺服器跟隨任何人、發發廢嘟，並且與任何 Mastodon 伺服器的使用者交流，以及更多！
+      prefix_sign_up: 今夜就加入 Nightcord 吧！
+      suffix: 有了帳號，就可以跟隨任何人、留下深夜的碎語，並且與任何 Mastodon 伺服器的使用者交流，以及更多！
     didnt_get_confirmation: 沒有收到驗證連結嗎？
     dont_have_your_security_key: 找不到您的安全金鑰？
     forgot_password: 忘記密碼？

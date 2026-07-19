@@ -1,7 +1,7 @@
 ---
 zh-CN:
   about:
-    about_mastodon_html: 迎接未来的社交网络：拒绝广告，告别商业监视，坚持伦理设计，拥抱去中心化！加入 Mastodon，夺回你的数据主权！
+    about_mastodon_html: 联邦宇宙里的深夜据点——拒绝广告，告别商业监视，坚持伦理设计，拥抱去中心化。等到 25 点，再在这里相见。加入 Mastodon，夺回你的数据主权。
     contact_missing: 未设置
     contact_unavailable: 未公开
     default_thumbnail_description: 两只微笑的卡通长毛象（看起来像大象）互相扔纸飞机。蔚蓝的穹顶之下，周遭环绕着林木葱郁的漂浮星球，成群的长毛象在其中伫立、繁衍生息。
@@ -1342,8 +1342,8 @@ zh-CN:
     delete_account_html: 如果你想删除你的账号，请<a href="%{path}">点击此处继续</a>。你需要确认你的操作。
     description:
       prefix_invited_by_user: "@%{name} 邀请你加入这个Mastodon服务器！"
-      prefix_sign_up: 现在就注册 Mastodon 吧！
-      suffix: 注册一个账号，你就可以关注他人、发布嘟文、并和其他任何 Mastodon 服务器上的用户交流，而且还有其他更多功能！
+      prefix_sign_up: 今夜就加入 Nightcord 吧！
+      suffix: 注册一个账号，你就可以关注他人、留下深夜的碎语，并和其他任何 Mastodon 服务器上的用户交流，而且还有其他更多功能！
     didnt_get_confirmation: 没有收到确认链接？
     dont_have_your_security_key: 没有你的安全密钥？
     forgot_password: 忘记密码？
