@@ -51,6 +51,8 @@ RSpec.describe 'Profile API' do
           'show_featured' => account.show_featured,
           'show_media' => account.show_media,
           'show_media_replies' => account.show_media_replies,
+          'world_plan_server' => account.world_plan_server,
+          'world_plan_game_id' => account.world_plan_game_id,
           'featured_tags' => []
         )
     end
@@ -93,6 +95,35 @@ RSpec.describe 'Profile API' do
           .to include(
             error: /Validation failed/,
             details: include(note: contain_exactly(include(error: 'ERR_TOO_LONG', description: /too long/)))
+          )
+      end
+    end
+
+    describe 'with mismatched world plan fields' do
+      let(:params) { { world_plan_server: 'jp' } }
+
+      it 'returns http unprocessable entity' do
+        subject
+        expect(response).to have_http_status(422)
+        expect(response.parsed_body)
+          .to include(
+            error: /Validation failed/,
+            details: include(world_plan_game_id: contain_exactly(include(error: 'ERR_BLANK')))
+          )
+      end
+    end
+
+    describe 'with valid world plan fields' do
+      let(:params) { { world_plan_server: 'jp', world_plan_game_id: '123456789' } }
+
+      it 'returns http success and updates world plan fields' do
+        subject
+
+        expect(response).to have_http_status(200)
+        expect(user.account.reload)
+          .to have_attributes(
+            world_plan_server: 'jp',
+            world_plan_game_id: '123456789'
           )
       end
     end

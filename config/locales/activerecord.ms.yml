@@ -24,10 +24,17 @@ ms:
         account:
           attributes:
             fields:
-              fields_with_values_missing_labels: mengandungi nilai dengan label yang hilang
+              fields_with_values_missing_labels: mengandungi nilai dengan label yang
+                hilang
             username:
               invalid: hanya mengandungi aksara, nombor dan garis bawah sahaja
               reserved: dikhaskan
+            world_plan_server:
+              blank: can't be blank
+              inclusion: is not included in the list
+            world_plan_game_id:
+              blank: can't be blank
+              invalid: must contain numbers only
         admin/webhook:
           attributes:
             url:
@@ -72,7 +79,8 @@ ms:
           attributes:
             permissions_as_keys:
               dangerous: termasuklah keizinan yang tidak selamat untuk peranan asas
-              elevated: tidak boleh memasukkan kebenaran yang tidak dimiliki oleh peranan semasa anda
+              elevated: tidak boleh memasukkan kebenaran yang tidak dimiliki oleh
+                peranan semasa anda
               own_role: tidak boleh diubah dengan peranan semasa anda
             position:
               elevated: tidak boleh lebih tinggi daripada peranan semasa anda
@@ -80,4 +88,5 @@ ms:
         webhook:
           attributes:
             events:
-              invalid_permissions: tidak boleh memasukkan acara yang anda tidak mempunyai hak untuk melakukannya
+              invalid_permissions: tidak boleh memasukkan acara yang anda tidak mempunyai
+                hak untuk melakukannya

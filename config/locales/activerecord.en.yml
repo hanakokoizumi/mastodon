@@ -28,6 +28,12 @@ en:
             username:
               invalid: must contain only letters, numbers and underscores
               reserved: is reserved
+            world_plan_server:
+              blank: can't be blank
+              inclusion: is not included in the list
+            world_plan_game_id:
+              blank: can't be blank
+              invalid: must contain numbers only
         admin/webhook:
           attributes:
             url:
@@ -80,4 +86,5 @@ en:
         webhook:
           attributes:
             events:
-              invalid_permissions: cannot include events you don't have the rights to
+              invalid_permissions: cannot include events you don't have the rights
+                to

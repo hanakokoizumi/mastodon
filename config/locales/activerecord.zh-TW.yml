@@ -28,6 +28,12 @@ zh-TW:
             username:
               invalid: 只能有字母、數字及底線
               reserved: 是保留關鍵字
+            world_plan_server:
+              blank: 不能為空
+              inclusion: 不在允許的清單中
+            world_plan_game_id:
+              blank: 不能為空
+              invalid: 只能包含數字
         admin/webhook:
           attributes:
             url:

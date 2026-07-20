@@ -26,6 +26,12 @@ lad:
             username:
               invalid: solo puede kontener letras, shifras i sulinyados
               reserved: esta rezervado
+            world_plan_server:
+              blank: can't be blank
+              inclusion: is not included in the list
+            world_plan_game_id:
+              blank: can't be blank
+              invalid: must contain numbers only
         admin/webhook:
           attributes:
             url:
@@ -65,4 +71,5 @@ lad:
         webhook:
           attributes:
             events:
-              invalid_permissions: no puedes inkluir evenimientos a los kualos no estas autorizado
+              invalid_permissions: no puedes inkluir evenimientos a los kualos no
+                estas autorizado

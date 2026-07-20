@@ -21,6 +21,12 @@ sr-Latn:
             username:
               invalid: mora da sadrži samo slova, brojeve i donje crte
               reserved: je rezervisano
+            world_plan_server:
+              blank: can't be blank
+              inclusion: is not included in the list
+            world_plan_game_id:
+              blank: can't be blank
+              invalid: must contain numbers only
         admin/webhook:
           attributes:
             url:

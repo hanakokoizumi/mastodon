@@ -21,6 +21,12 @@ hi:
             username:
               invalid: केवल अक्षर, संख्या और अंडरस्कोर
               reserved: आरक्षित है
+            world_plan_server:
+              blank: can't be blank
+              inclusion: is not included in the list
+            world_plan_game_id:
+              blank: can't be blank
+              invalid: must contain numbers only
         admin/webhook:
           attributes:
             url:

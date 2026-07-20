@@ -21,6 +21,12 @@ zh-HK:
             username:
               invalid: 只能使用字母、數字和下劃線
               reserved: 已被保留
+            world_plan_server:
+              blank: can't be blank
+              inclusion: is not included in the list
+            world_plan_game_id:
+              blank: can't be blank
+              invalid: must contain numbers only
         admin/webhook:
           attributes:
             url:

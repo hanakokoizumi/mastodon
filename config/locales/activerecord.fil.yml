@@ -7,3 +7,9 @@ fil:
           attributes:
             fields:
               fields_with_values_missing_labels: may mga value na walang label
+            world_plan_server:
+              blank: can't be blank
+              inclusion: is not included in the list
+            world_plan_game_id:
+              blank: can't be blank
+              invalid: must contain numbers only

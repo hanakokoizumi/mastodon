@@ -28,6 +28,12 @@ sq:
             username:
               invalid: duhet të përmbajë vetëm shkronja, numra dhe nënvija
               reserved: është i rezervuar
+            world_plan_server:
+              blank: can't be blank
+              inclusion: is not included in the list
+            world_plan_game_id:
+              blank: can't be blank
+              invalid: must contain numbers only
         admin/webhook:
           attributes:
             url:
@@ -72,7 +78,8 @@ sq:
           attributes:
             permissions_as_keys:
               dangerous: përfshi leje që s’janë të parrezik për rolin bazë
-              elevated: s’mund të përfshijë leje të cilat roli juaj i tanishëm s’i përfshin
+              elevated: s’mund të përfshijë leje të cilat roli juaj i tanishëm s’i
+                përfshin
               own_role: s’mund të ndryshohet me rolin tuaj të tanishëm
             position:
               elevated: s’mund të jetë më i lartë sesa roli juaj i tanishëm
@@ -80,4 +87,5 @@ sq:
         webhook:
           attributes:
             events:
-              invalid_permissions: s’mund të përfshihen veprimtari mbi të cilat s’keni të drejta
+              invalid_permissions: s’mund të përfshihen veprimtari mbi të cilat s’keni
+                të drejta

@@ -21,6 +21,12 @@ af:
             username:
               invalid: mag slegs letters, syfers en onderstrepe bevat
               reserved: is gereserveer
+            world_plan_server:
+              blank: can't be blank
+              inclusion: is not included in the list
+            world_plan_game_id:
+              blank: can't be blank
+              invalid: must contain numbers only
         admin/webhook:
           attributes:
             url:
@@ -48,7 +54,8 @@ af:
           attributes:
             permissions_as_keys:
               dangerous: bevat toestemmings wat vir die basisrol onveilig is
-              elevated: kan nie toestemmings bevat waaroor jou huidige rol nie beskik nie
+              elevated: kan nie toestemmings bevat waaroor jou huidige rol nie beskik
+                nie
               own_role: kan nie verander word met jou huidige rol nie
             position:
               elevated: kan nie hoër as jou huidige rol wees nie
@@ -56,4 +63,5 @@ af:
         webhook:
           attributes:
             events:
-              invalid_permissions: geleenthede waartoe jy nie toegang het nie mag nie ingesluit word nie
+              invalid_permissions: geleenthede waartoe jy nie toegang het nie mag
+                nie ingesluit word nie

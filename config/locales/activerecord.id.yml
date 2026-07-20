@@ -21,6 +21,12 @@ id:
             username:
               invalid: hanya boleh berisi huruf, angka, dan garis bawah
               reserved: sudah dipesan
+            world_plan_server:
+              blank: can't be blank
+              inclusion: is not included in the list
+            world_plan_game_id:
+              blank: can't be blank
+              invalid: must contain numbers only
         admin/webhook:
           attributes:
             url:

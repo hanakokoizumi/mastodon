@@ -28,6 +28,12 @@ fa:
             username:
               invalid: تنها حروف، اعداد، و زیرخط
               reserved: محفوظ است
+            world_plan_server:
+              blank: can't be blank
+              inclusion: is not included in the list
+            world_plan_game_id:
+              blank: can't be blank
+              invalid: must contain numbers only
         admin/webhook:
           attributes:
             url:

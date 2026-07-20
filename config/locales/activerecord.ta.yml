@@ -11,6 +11,12 @@ ta:
           attributes:
             username:
               invalid: எழுத்துகள், எண்கள் மற்றும் அடிக்கோடுகள் மட்டுமே
+            world_plan_server:
+              blank: can't be blank
+              inclusion: is not included in the list
+            world_plan_game_id:
+              blank: can't be blank
+              invalid: must contain numbers only
         status:
           attributes:
             reblog:

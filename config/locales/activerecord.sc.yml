@@ -21,6 +21,12 @@ sc:
             username:
               invalid: isceti lìteras, nùmeros e tratigheddos bassos
               reserved: est prenotadu
+            world_plan_server:
+              blank: can't be blank
+              inclusion: is not included in the list
+            world_plan_game_id:
+              blank: can't be blank
+              invalid: must contain numbers only
         status:
           attributes:
             reblog:

@@ -21,6 +21,12 @@ sa:
             username:
               invalid: केवलमक्षराणि, संख्याः, अन्दर्स्कोरित्येतानि अवश्यानि लभ्येरन्।
               reserved: आरक्षितम्
+            world_plan_server:
+              blank: can't be blank
+              inclusion: is not included in the list
+            world_plan_game_id:
+              blank: can't be blank
+              invalid: must contain numbers only
         admin/webhook:
           attributes:
             url:
@@ -56,4 +62,5 @@ sa:
         webhook:
           attributes:
             events:
-              invalid_permissions: यस्या घटनाया अधिकारा न सन्ति ताः परिग्रहितुं न शक्यन्ते।
+              invalid_permissions: यस्या घटनाया अधिकारा न सन्ति ताः परिग्रहितुं न
+                शक्यन्ते।

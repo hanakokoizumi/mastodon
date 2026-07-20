@@ -86,6 +86,9 @@ class Account < ApplicationRecord
   ATTRIBUTION_DOMAINS_HARD_LIMIT = 256
   ALSO_KNOWN_AS_HARD_LIMIT = 256
 
+  WORLD_PLAN_SERVERS = %w(jp tw en kr cn).freeze
+  WORLD_PLAN_GAME_ID_MAX = 20
+
   AUTOMATED_ACTOR_TYPES = %w(Application Service).freeze
 
   include Attachmentable # Load prior to Avatar & Header concerns
@@ -131,6 +134,9 @@ class Account < ApplicationRecord
   validates :note, note_length: { maximum: NOTE_LENGTH_LIMIT }, if: -> { local? && will_save_change_to_note? }
   validates :fields, length: { maximum: DEFAULT_FIELDS_SIZE }, if: -> { local? && will_save_change_to_fields? }
   validates_with EmptyProfileFieldNamesValidator, if: -> { local? && will_save_change_to_fields? }
+  validates :world_plan_server, inclusion: { in: WORLD_PLAN_SERVERS + [''] }, if: -> { local? && will_save_change_to_world_plan_server? }
+  validates :world_plan_game_id, format: { with: /\A\d{0,#{WORLD_PLAN_GAME_ID_MAX}}\z/o, message: :invalid }, if: -> { local? && will_save_change_to_world_plan_game_id? }
+  validate :validate_world_plan_fields_paired, if: -> { local? && (will_save_change_to_world_plan_server? || will_save_change_to_world_plan_game_id?) }
   with_options on: :create, if: :local? do
     validates :followers_url, absence: true
     validates :following_url, absence: true
@@ -536,5 +542,18 @@ class Account < ApplicationRecord
   # NOTE: the `account.created` webhook is triggered by the `User` model, not `Account`.
   def trigger_update_webhooks
     TriggerWebhookWorker.perform_async('account.updated', 'Account', id) if local?
+  end
+
+  def validate_world_plan_fields_paired
+    server_present = world_plan_server.present?
+    game_id_present = world_plan_game_id.present?
+
+    return if server_present == game_id_present
+
+    if server_present
+      errors.add(:world_plan_game_id, :blank)
+    else
+      errors.add(:world_plan_server, :blank)
+    end
   end
 end

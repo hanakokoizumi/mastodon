@@ -28,6 +28,12 @@ ja:
             username:
               invalid: アルファベット・数字・アンダーバーの組み合わせで入力してください
               reserved: は予約されています
+            world_plan_server:
+              blank: 空にできません
+              inclusion: リストに含まれていません
+            world_plan_game_id:
+              blank: 空にできません
+              invalid: 数字のみ使用できます
         admin/webhook:
           attributes:
             url:

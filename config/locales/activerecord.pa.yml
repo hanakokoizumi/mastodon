@@ -21,3 +21,9 @@ pa:
             username:
               invalid: ਸਿਰਫ਼ ਅੱਖਰ, ਅੰਕ ਅਤੇ ਹੇਠਾਂ-ਰੇਖਾ ਹੀ ਹੋੋਣੀ ਚਾਹੀਦੀ ਹੈ
               reserved: ਰਾਖਵਾਂ ਹੈ
+            world_plan_server:
+              blank: can't be blank
+              inclusion: is not included in the list
+            world_plan_game_id:
+              blank: can't be blank
+              invalid: must contain numbers only

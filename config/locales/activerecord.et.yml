@@ -24,10 +24,17 @@ et:
         account:
           attributes:
             fields:
-              fields_with_values_missing_labels: sisaldab väärtusi, kus väljade nimed on puudu
+              fields_with_values_missing_labels: sisaldab väärtusi, kus väljade nimed
+                on puudu
             username:
               invalid: ainult tähtmärgid, numbrid ja alakriipsud
               reserved: on reserveeritud
+            world_plan_server:
+              blank: can't be blank
+              inclusion: is not included in the list
+            world_plan_game_id:
+              blank: can't be blank
+              invalid: must contain numbers only
         admin/webhook:
           attributes:
             url:
@@ -80,4 +87,5 @@ et:
         webhook:
           attributes:
             events:
-              invalid_permissions: ei tohi sisaldada sündmuseid, mille jaoks pole sul õiguseid
+              invalid_permissions: ei tohi sisaldada sündmuseid, mille jaoks pole
+                sul õiguseid

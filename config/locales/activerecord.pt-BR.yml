@@ -28,6 +28,12 @@ pt-BR:
             username:
               invalid: apenas letras, números e underlines ( "_" )
               reserved: já existe
+            world_plan_server:
+              blank: can't be blank
+              inclusion: is not included in the list
+            world_plan_game_id:
+              blank: can't be blank
+              invalid: must contain numbers only
         admin/webhook:
           attributes:
             url:
@@ -80,4 +86,5 @@ pt-BR:
         webhook:
           attributes:
             events:
-              invalid_permissions: não pode incluir eventos para os quais você não tem permissão
+              invalid_permissions: não pode incluir eventos para os quais você não
+                tem permissão

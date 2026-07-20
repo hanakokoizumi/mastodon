@@ -11,3 +11,9 @@ mr:
           attributes:
             username:
               invalid: फक्त अक्षरे, अंक आणि अंडरस्कोर चिन्ह
+            world_plan_server:
+              blank: can't be blank
+              inclusion: is not included in the list
+            world_plan_game_id:
+              blank: can't be blank
+              invalid: must contain numbers only

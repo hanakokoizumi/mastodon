@@ -20,3 +20,11 @@ nan-TW:
           attributes:
             effective_date:
               too_soon: 傷緊ah，著khah uànn佇 %{date}
+        account:
+          attributes:
+            world_plan_server:
+              blank: can't be blank
+              inclusion: is not included in the list
+            world_plan_game_id:
+              blank: can't be blank
+              invalid: must contain numbers only

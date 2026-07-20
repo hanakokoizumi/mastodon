@@ -21,6 +21,12 @@ sco:
             username:
               invalid: haes tae ainly hae letters, nummers an unnerscores
               reserved: is reseirvit
+            world_plan_server:
+              blank: can't be blank
+              inclusion: is not included in the list
+            world_plan_game_id:
+              blank: can't be blank
+              invalid: must contain numbers only
         admin/webhook:
           attributes:
             url:

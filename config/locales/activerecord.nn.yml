@@ -28,6 +28,12 @@ nn:
             username:
               invalid: kan berre innehalda bokstavar, tal og understrekar
               reserved: er reservert
+            world_plan_server:
+              blank: can't be blank
+              inclusion: is not included in the list
+            world_plan_game_id:
+              blank: can't be blank
+              invalid: must contain numbers only
         admin/webhook:
           attributes:
             url:
@@ -72,7 +78,8 @@ nn:
           attributes:
             permissions_as_keys:
               dangerous: inkluder tillatingar som ikkje er trygge for basisrolla
-              elevated: kan ikkje inkludere rettigheiter di noverande rolle ikkje innehar
+              elevated: kan ikkje inkludere rettigheiter di noverande rolle ikkje
+                innehar
               own_role: kan ikkje endrast med di noverande rolle
             position:
               elevated: kan ikkje vere høgare enn di noverande rolle
@@ -80,4 +87,5 @@ nn:
         webhook:
           attributes:
             events:
-              invalid_permissions: kan ikkje inkludere hendingar du ikkje har rettar til
+              invalid_permissions: kan ikkje inkludere hendingar du ikkje har rettar
+                til

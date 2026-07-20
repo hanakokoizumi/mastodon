@@ -16,3 +16,11 @@ zgh:
           attributes:
             email:
               unreachable: ⴰⵎⵎⴰⵏⵉ ⵉⵙ ⵓⵔ ⵉⵍⵍⵉ
+        account:
+          attributes:
+            world_plan_server:
+              blank: can't be blank
+              inclusion: is not included in the list
+            world_plan_game_id:
+              blank: can't be blank
+              invalid: must contain numbers only

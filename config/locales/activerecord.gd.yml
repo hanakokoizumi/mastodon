@@ -24,10 +24,18 @@ gd:
         account:
           attributes:
             fields:
-              fields_with_values_missing_labels: "– tha luachan ann air a bheil leubail a dhìth"
+              fields_with_values_missing_labels: "– tha luachan ann air a bheil leubail
+                a dhìth"
             username:
-              invalid: "– chan fhaod ach litrichean gun sràcan, àireamhan ’s fo-loidhnichean a bhith ’na bhroinn"
+              invalid: "– chan fhaod ach litrichean gun sràcan, àireamhan ’s fo-loidhnichean
+                a bhith ’na bhroinn"
               reserved: "– tha e glèidhte"
+            world_plan_server:
+              blank: can't be blank
+              inclusion: is not included in the list
+            world_plan_game_id:
+              blank: can't be blank
+              invalid: must contain numbers only
         admin/webhook:
           attributes:
             url:
@@ -58,7 +66,8 @@ gd:
         terms_of_service:
           attributes:
             effective_date:
-              too_soon: "– tha seo ro aithghearr, feumaidh e a bhith nas anmoiche na %{date}"
+              too_soon: "– tha seo ro aithghearr, feumaidh e a bhith nas anmoiche
+                na %{date}"
         user:
           attributes:
             date_of_birth:
@@ -67,17 +76,21 @@ gd:
               blocked: "– tha seo a’ chleachdadh solaraiche puist-d nach eil ceadaichte"
               unreachable: "– tha coltas nach eil seo ann"
             role_id:
-              elevated: "– chan fhaod seo a bhith nas àirde na an dreuchd a th’ agad an-dràsta"
+              elevated: "– chan fhaod seo a bhith nas àirde na an dreuchd a th’ agad
+                an-dràsta"
         user_role:
           attributes:
             permissions_as_keys:
               dangerous: gabh a-staigh na ceadan nach eil sàbhailte dhan bhun-dreuchd
-              elevated: chan urrainn dhut ceadan a ghabhail a-staigh nach eil aig an dreuchd a th’ agad an-dràsta
+              elevated: chan urrainn dhut ceadan a ghabhail a-staigh nach eil aig
+                an dreuchd a th’ agad an-dràsta
               own_role: cha ghabh seo atharrachadh leis an dreuchd a th’ agad an-dràsta
             position:
-              elevated: chan fhaod seo a bhith nas àirde na an dreuchd a th’ agad an-dràsta
+              elevated: chan fhaod seo a bhith nas àirde na an dreuchd a th’ agad
+                an-dràsta
               own_role: cha ghabh seo atharrachadh leis an dreuchd a th’ agad an-dràsta
         webhook:
           attributes:
             events:
-              invalid_permissions: chan fhaod thu tachartasan air nach eil ceadan agad a ghabhail a-steach
+              invalid_permissions: chan fhaod thu tachartasan air nach eil ceadan
+                agad a ghabhail a-steach
