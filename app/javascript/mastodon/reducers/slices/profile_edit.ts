@@ -175,6 +175,8 @@ const transformProfile = (result: ApiProfileJSON): ProfileData => ({
   showMedia: result.show_media,
   showMediaReplies: result.show_media_replies,
   showFeatured: result.show_featured,
+  worldPlanServer: result.world_plan_server,
+  worldPlanGameId: result.world_plan_game_id,
   attributionDomains: result.attribution_domains,
   featuredTags: result.featured_tags.map(transformTag),
 });

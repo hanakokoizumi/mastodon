@@ -30,6 +30,7 @@ import { AccountNumberFields } from './number_fields';
 import classes from './styles.module.scss';
 import { AccountSubscriptionForm } from './subscription_form';
 import { AccountTabs } from './tabs';
+import { AccountHeaderWorldPlan } from './world_plan';
 
 const titleFromAccount = (account: Account) => {
   const displayName = account.display_name;
@@ -151,6 +152,8 @@ export const AccountHeader: React.FC<{
               <AccountBio showDropdown accountId={accountId} />
 
               <AccountHeaderFields accountId={accountId} />
+
+              <AccountHeaderWorldPlan accountId={accountId} />
 
               {!me && account.email_subscriptions && (
                 <AccountSubscriptionForm accountId={accountId} />

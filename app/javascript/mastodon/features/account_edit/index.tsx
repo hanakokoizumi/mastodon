@@ -24,6 +24,7 @@ import {
   patchProfile,
 } from '@/mastodon/reducers/slices/profile_edit';
 import { useAppDispatch, useAppSelector } from '@/mastodon/store';
+import { formatWorldPlanServer } from '@/mastodon/utils/world_plan';
 
 import { AccountEditColumn, AccountEditEmptyColumn } from './components/column';
 import { EditButton } from './components/edit_button';
@@ -117,6 +118,23 @@ export const messages = defineMessages({
     id: 'account_edit.advanced_settings.title',
     defaultMessage: 'Advanced settings',
   },
+  worldPlanTitle: {
+    id: 'account_edit.world_plan.title',
+    defaultMessage: 'Project Sekai ID',
+  },
+  worldPlanPlaceholder: {
+    id: 'account_edit.world_plan.placeholder',
+    defaultMessage:
+      'Show your Project Sekai server and game ID on your profile. This information is only visible on this server.',
+  },
+  worldPlanAddLabel: {
+    id: 'account_edit.world_plan.add_label',
+    defaultMessage: 'Add Project Sekai ID',
+  },
+  worldPlanEditLabel: {
+    id: 'account_edit.world_plan.edit_label',
+    defaultMessage: 'Edit Project Sekai ID',
+  },
 });
 
 export const AccountEdit: FC = () => {
@@ -172,6 +190,9 @@ export const AccountEdit: FC = () => {
   const handleProfileDisplayEdit = useCallback(() => {
     handleOpenModal('ACCOUNT_EDIT_PROFILE_DISPLAY');
   }, [handleOpenModal]);
+  const handleWorldPlanEdit = useCallback(() => {
+    handleOpenModal('ACCOUNT_EDIT_WORLD_PLAN', { ignoreFocus: true });
+  }, [handleOpenModal]);
 
   const history = useHistory();
   const handleFeaturedTagsEdit = useCallback(() => {
@@ -197,6 +218,20 @@ export const AccountEdit: FC = () => {
   const hasBio = !!profile.bio;
   const hasFields = profile.fields.length > 0;
   const hasTags = profile.featuredTags.length > 0;
+  const hasWorldPlan = !!(profile.worldPlanServer && profile.worldPlanGameId);
+
+  const worldPlanDisplay = hasWorldPlan
+    ? intl.formatMessage(
+        {
+          id: 'account.world_plan.value',
+          defaultMessage: '{server} · {gameId}',
+        },
+        {
+          server: formatWorldPlanServer(intl, profile.worldPlanServer),
+          gameId: profile.worldPlanGameId,
+        },
+      )
+    : '';
 
   return (
     <AccountEditColumn
@@ -314,6 +349,25 @@ export const AccountEdit: FC = () => {
               />
             </DismissibleCallout>
           )}
+        </AccountEditSection>
+
+        <AccountEditSection
+          title={messages.worldPlanTitle}
+          description={messages.worldPlanPlaceholder}
+          showDescription={!hasWorldPlan}
+          buttons={
+            <EditButton
+              onClick={handleWorldPlanEdit}
+              label={intl.formatMessage(
+                hasWorldPlan
+                  ? messages.worldPlanEditLabel
+                  : messages.worldPlanAddLabel,
+              )}
+              icon={hasWorldPlan}
+            />
+          }
+        >
+          {hasWorldPlan && worldPlanDisplay}
         </AccountEditSection>
 
         <AccountEditSection

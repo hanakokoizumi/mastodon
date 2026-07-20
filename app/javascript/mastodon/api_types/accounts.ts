@@ -58,6 +58,8 @@ export interface BaseApiAccountJSON {
   show_media: boolean;
   show_media_replies: boolean;
   show_featured: boolean;
+  world_plan_server: string;
+  world_plan_game_id: string;
   noindex?: boolean;
   note: string;
   roles?: ApiAccountJSON[];

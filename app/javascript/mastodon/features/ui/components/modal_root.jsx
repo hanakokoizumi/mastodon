@@ -98,6 +98,7 @@ export const MODAL_COMPONENTS = {
   'ACCOUNT_EDIT_NAME': accountEditModal('NameModal'),
   'ACCOUNT_EDIT_BIO': accountEditModal('BioModal'),
   'ACCOUNT_EDIT_PROFILE_DISPLAY': accountEditModal('ProfileDisplayModal'),
+  'ACCOUNT_EDIT_WORLD_PLAN': accountEditModal('WorldPlanModal'),
   'ACCOUNT_EDIT_VERIFY_LINKS': accountEditModal('VerifiedModal'),
   'ACCOUNT_EDIT_FIELD_EDIT': accountEditModal('EditFieldModal'),
   'ACCOUNT_EDIT_FIELD_DELETE': accountEditModal('DeleteFieldModal'),

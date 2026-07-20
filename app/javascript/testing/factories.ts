@@ -50,6 +50,8 @@ export const accountFactory: FactoryFunction<ApiAccountJSON> = ({
   show_featured: true,
   show_media: true,
   show_media_replies: true,
+  world_plan_server: '',
+  world_plan_game_id: '',
   mute_expires_at: null,
   note: 'This is a test user account.',
   statuses_count: 0,

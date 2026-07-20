@@ -87,6 +87,8 @@ export const accountDefaultValues: AccountShape = {
   show_featured: true,
   show_media: true,
   show_media_replies: true,
+  world_plan_server: '',
+  world_plan_game_id: '',
   note: '',
   note_emojified: '',
   note_plain: 'string',

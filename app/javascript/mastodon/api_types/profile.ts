@@ -21,6 +21,8 @@ export interface ApiProfileJSON {
   show_media_replies: boolean;
   show_featured: boolean;
   attribution_domains: string[];
+  world_plan_server: string;
+  world_plan_game_id: string;
   featured_tags: ApiFeaturedTagJSON[];
 }
 
@@ -39,6 +41,8 @@ export type ApiProfileUpdateParams = Partial<
     | 'show_media'
     | 'show_media_replies'
     | 'show_featured'
+    | 'world_plan_server'
+    | 'world_plan_game_id'
   >
 > & {
   attribution_domains?: string[];
