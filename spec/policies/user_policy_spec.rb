@@ -14,6 +14,28 @@ RSpec.describe UserPolicy do
         it 'permits' do
           expect(subject).to permit(admin, john.user)
         end
+
+        context 'when the user is external' do
+          before do
+            john.user.update!(external: true)
+          end
+
+          it 'denies reset_password' do
+            expect(subject).to_not permit(admin, john.user)
+          end
+        end
+
+        context 'when OMNIAUTH_ONLY is enabled' do
+          around do |example|
+            ClimateControl.modify OMNIAUTH_ONLY: 'true' do
+              example.run
+            end
+          end
+
+          it 'denies reset_password' do
+            expect(subject).to_not permit(admin, john.user)
+          end
+        end
       end
 
       context 'when record.staff?' do

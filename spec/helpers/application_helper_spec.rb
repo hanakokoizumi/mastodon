@@ -112,8 +112,33 @@ RSpec.describe ApplicationHelper do
         end
       end
 
-      it 'redirects to joinmastodon site' do
-        expect(helper.available_sign_up_url).to match(/joinmastodon.org/)
+      it 'returns the SSO sign-up URL' do
+        expect(helper.available_sign_up_url).to eq(new_user_session_url)
+      end
+
+      context 'when SSO_ACCOUNT_SIGN_UP is set' do
+        around do |example|
+          ClimateControl.modify SSO_ACCOUNT_SIGN_UP: 'https://idp.example.com/signup' do
+            example.run
+          end
+        end
+
+        it 'returns the configured SSO sign-up URL' do
+          expect(helper.available_sign_up_url).to eq('https://idp.example.com/signup')
+        end
+      end
+
+      context 'when a single OmniAuth provider is configured' do
+        before do
+          allow(Devise.mappings[:user]).to receive(:omniauthable?).and_return(true)
+          allow(User).to receive(:omniauth_providers).and_return([:openid_connect])
+        end
+
+        it 'returns the OmniAuth authorize URL' do
+          expect(helper.available_sign_up_url).to eq(
+            helper.omniauth_authorize_url(:user, :openid_connect)
+          )
+        end
       end
     end
 

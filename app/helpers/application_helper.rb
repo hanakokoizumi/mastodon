@@ -35,10 +35,20 @@ module ApplicationHelper
   end
 
   def available_sign_up_url
-    if closed_registrations? || omniauth_only?
+    if closed_registrations?
       'https://joinmastodon.org/'
+    elsif omniauth_only?
+      ENV['SSO_ACCOUNT_SIGN_UP'].presence || omniauth_sign_up_url
     else
       ENV.fetch('SSO_ACCOUNT_SIGN_UP', new_user_registration_url)
+    end
+  end
+
+  def omniauth_sign_up_url
+    if omniauth_only? && Devise.mappings[:user].omniauthable? && User.omniauth_providers.size == 1
+      omniauth_authorize_url(:user, User.omniauth_providers.first)
+    else
+      new_user_session_url
     end
   end
 

@@ -14,6 +14,7 @@ class Auth::SessionsController < Devise::SessionsController
 
   around_action :preserve_stored_location, only: :destroy, if: :continue_after?
 
+  prepend_before_action :reject_password_login_in_omniauth_only_mode!, only: [:create]
   prepend_before_action :check_suspicious!, only: [:create]
 
   include Auth::TwoFactorAuthenticationConcern
@@ -92,6 +93,13 @@ class Auth::SessionsController < Devise::SessionsController
     original_stored_location = stored_location_for(:user)
     yield
     store_location_for(:user, original_stored_location)
+  end
+
+  def reject_password_login_in_omniauth_only_mode!
+    return unless omniauth_only?
+    return if use_seamless_external_login?
+
+    redirect_to new_user_session_path, alert: I18n.t('auth.omniauth_only')
   end
 
   def check_suspicious!

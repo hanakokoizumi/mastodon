@@ -356,6 +356,8 @@ class User < ApplicationRecord
   end
 
   def reset_password!
+    return false if external? || encrypted_password.blank?
+
     # First, change password to something random, this revokes sessions and on-going access:
     change_password!(SecureRandom.hex)
 

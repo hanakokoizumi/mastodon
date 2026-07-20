@@ -21,6 +21,8 @@ class ApplicationController < ActionController::Base
   helper_method :single_user_mode?
   helper_method :use_seamless_external_login?
   helper_method :sso_account_settings
+  helper_method :show_sso_account_settings_link?
+  helper_method :omniauth_only?
   helper_method :limited_federation_mode?
   helper_method :skip_csrf_meta_tags?
 
@@ -112,8 +114,18 @@ class ApplicationController < ActionController::Base
     Devise.pam_authentication || Devise.ldap_authentication
   end
 
+  def omniauth_only?
+    ENV['OMNIAUTH_ONLY'] == 'true'
+  end
+
   def sso_account_settings
-    ENV.fetch('SSO_ACCOUNT_SETTINGS', nil)
+    ENV['OIDC_ACCOUNT_SETTINGS_URL'].presence || ENV.fetch('SSO_ACCOUNT_SETTINGS', nil)
+  end
+
+  def show_sso_account_settings_link?
+    return false if sso_account_settings.blank?
+
+    ENV['OIDC_ACCOUNT_SETTINGS_URL'].present? || omniauth_only?
   end
 
   def current_account

@@ -44,6 +44,8 @@
   %td{ rowspan: can?(:reset_password, account.user) ? 2 : 1 }
     - if account.user&.two_factor_enabled?
       = t 'admin.accounts.security_measures.password_and_2fa'
+    - elsif account.user&.external?
+      = t 'admin.accounts.security_measures.oidc_only'
     - else
       = t 'admin.accounts.security_measures.only_password'
   %td

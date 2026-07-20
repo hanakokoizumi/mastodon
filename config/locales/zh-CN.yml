@@ -141,6 +141,7 @@ zh-CN:
       search_same_ip: 具有相同IP的其他用户
       security: 安全性
       security_measures:
+        oidc_only: OpenID Connect（无本地密码）
         only_password: 仅密码
         password_and_2fa: 密码和双因素认证
       sensitive: 敏感内容
@@ -1354,6 +1355,7 @@ zh-CN:
     login: 登录
     oidc_redirecting: 正在跳转至登录页面…
     oidc_redirecting_noscript_html: 自动登录需要启用 JavaScript，或使用下方按钮继续。
+    omniauth_only: 本实例已禁用本地登录，请通过身份提供商登录。
     logout: 退出登录
     migrate_account: 迁移到另一个账号
     migrate_account_html: 如果你希望引导他人关注另一个账号，请<a href="%{path}">点击这里进行设置</a>。
@@ -2312,6 +2314,7 @@ zh-CN:
     follow_limit_reached: 你不能关注超过 %{limit} 个人
     go_to_sso_account_settings: 转到你的身份提供商进行账号设置
     invalid_otp_token: 输入的双因素认证代码无效
+    oidc_external_login: 你通过 OpenID Connect 登录，密码和邮件设置由身份提供商管理。
     otp_lost_help_html: 如果你不慎丢失了全部的代码，请联系 %{email} 寻求帮助
     rate_limited: 验证尝试次数过多，请稍后再试。
     seamless_external_login: 你通过外部服务登录，因此密码和邮件设置不可用。

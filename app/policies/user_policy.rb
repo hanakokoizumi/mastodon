@@ -2,6 +2,9 @@
 
 class UserPolicy < ApplicationPolicy
   def reset_password?
+    return false if record.external?
+    return false if ENV['OMNIAUTH_ONLY'] == 'true'
+
     role.can?(:manage_user_access) && role.overrides?(record.role)
   end
 

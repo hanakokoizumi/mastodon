@@ -143,6 +143,7 @@ zh-TW:
       search_same_ip: 其他有同個 IP 的使用者
       security: 安全性
       security_measures:
+        oidc_only: OpenID Connect（無本機密碼）
         only_password: 僅使用密碼
         password_and_2fa: 密碼及兩階段驗證 (2FA)
       sensitive: 強制標記為敏感内容
@@ -1357,6 +1358,7 @@ zh-TW:
     login: 登入
     oidc_redirecting: 正在帶您前往登入…
     oidc_redirecting_noscript_html: 自動登入需要 JavaScript。請點選下方按鈕繼續。
+    omniauth_only: 本實例已停用本機登入，請透過身分提供商登入。
     logout: 登出
     migrate_account: 轉移至另一個帳號
     migrate_account_html: 如果您希望引導他人跟隨另一個帳號，請<a href="%{path}">至這裡設定</a>。
@@ -2319,6 +2321,7 @@ zh-TW:
     follow_limit_reached: 您無法跟隨多於 %{limit} 個人
     go_to_sso_account_settings: 前往您的身分提供商 (identity provider) 之帳號設定
     invalid_otp_token: 兩階段驗證碼不正確
+    oidc_external_login: 您透過 OpenID Connect 登入，密碼與電子郵件設定由身分提供商管理。
     otp_lost_help_html: 如果您無法存取這兩者，您可以透過 %{email} 與我們聯繫
     rate_limited: 過多次身份驗證嘗試，請稍後再試。
     seamless_external_login: 由於您是透過外部服務登入，所以不能設定密碼與電子郵件。

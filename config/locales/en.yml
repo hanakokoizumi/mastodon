@@ -145,6 +145,7 @@ en:
       search_same_ip: Other users with the same IP
       security: Security
       security_measures:
+        oidc_only: OpenID Connect (no local password)
         only_password: Only password
         password_and_2fa: Password and 2FA
       sensitive: Force-sensitive
@@ -1375,6 +1376,7 @@ en:
     login: Log in
     oidc_redirecting: Taking you to sign in…
     oidc_redirecting_noscript_html: Automatic sign-in needs JavaScript. Use the button below to continue.
+    omniauth_only: Local sign-in is disabled on this server. Please use your identity provider to sign in.
     logout: Logout
     migrate_account: Move to a different account
     migrate_account_html: If you wish to redirect this account to a different one, you can <a href="%{path}">configure it here</a>.
@@ -2363,6 +2365,7 @@ en:
     follow_limit_reached: You cannot follow more than %{limit} people
     go_to_sso_account_settings: Go to your identity provider's account settings
     invalid_otp_token: Invalid two-factor code
+    oidc_external_login: You are signed in through OpenID Connect. Password and email settings are managed by your identity provider.
     otp_lost_help_html: If you lost access to both, you may get in touch with %{email}
     rate_limited: Too many authentication attempts, try again later.
     seamless_external_login: You are logged in via an external service, so password and email settings are not available.

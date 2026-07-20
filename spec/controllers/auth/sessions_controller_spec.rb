@@ -122,6 +122,24 @@ RSpec.describe Auth::SessionsController do
     context 'when using password authentication' do
       let(:user) { Fabricate(:user, email: 'foo@bar.com', password: 'abcdefgh') }
 
+      context 'when OMNIAUTH_ONLY is enabled' do
+        around do |example|
+          ClimateControl.modify OMNIAUTH_ONLY: 'true' do
+            example.run
+          end
+        end
+
+        before do
+          post :create, params: { user: { email: user.email, password: user.password } }
+        end
+
+        it 'redirects to the sign-in page and does not log the user in' do
+          expect(response).to redirect_to(new_user_session_path)
+          expect(flash[:alert]).to eq(I18n.t('auth.omniauth_only'))
+          expect(controller.current_user).to be_nil
+        end
+      end
+
       context 'when using a valid password' do
         subject do
           post :create, params: { user: { email: user.email, password: user.password } }

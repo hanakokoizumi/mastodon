@@ -2,6 +2,7 @@
 
 class Auth::PasswordsController < Devise::PasswordsController
   skip_before_action :check_self_destruct!
+  before_action :reject_in_omniauth_only_mode!
   before_action :redirect_invalid_reset_token, only: :edit, unless: :reset_password_token_is_valid?
 
   layout 'auth'
@@ -17,6 +18,12 @@ class Auth::PasswordsController < Devise::PasswordsController
   end
 
   private
+
+  def reject_in_omniauth_only_mode!
+    return unless omniauth_only?
+
+    redirect_to new_user_session_path, alert: I18n.t('auth.omniauth_only')
+  end
 
   def redirect_invalid_reset_token
     redirect_to new_password_path(resource_name), flash: { error: t('auth.invalid_reset_password_token') }
