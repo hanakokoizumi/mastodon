@@ -352,6 +352,10 @@ $button-fallback-breakpoint: $button-breakpoint + 55px;
   }
 }
 
+.worldPlanField {
+  grid-column: 1 / -1;
+}
+
 .fieldVerified {
   background-color: var(--color-bg-success-softest);
 

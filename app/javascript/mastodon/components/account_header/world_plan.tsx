@@ -2,6 +2,8 @@ import type { FC } from 'react';
 
 import { defineMessage, useIntl } from 'react-intl';
 
+import classNames from 'classnames';
+
 import { MiniCard } from '@/mastodon/components/mini_card';
 import { useAccount } from '@/mastodon/hooks/useAccount';
 import {
@@ -42,7 +44,7 @@ export const AccountHeaderWorldPlan: FC<{ accountId: string }> = ({
   return (
     <dl className={classes.fieldList}>
       <MiniCard
-        className={classes.fieldItem}
+        className={classNames(classes.fieldItem, classes.worldPlanField)}
         label={
           <span className='translate'>{intl.formatMessage(labelMessage)}</span>
         }
