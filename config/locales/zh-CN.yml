@@ -995,7 +995,7 @@ zh-CN:
         federation_authentication: 联合时强制要求身份验证
       title: 服务器设置
     site_uploads:
-        destroyed_msg: 站点上传的文件已经成功删除！
+      destroyed_msg: 站点上传的文件已经成功删除！
     skip_to_content: 跳转到内容
     software_updates:
       critical_update: 紧急 — 请尽快更新
@@ -1378,12 +1378,12 @@ zh-CN:
     link_to_webauth: 使用你的安全密钥设备
     log_in_with: 通过外部服务登录
     login: 登录
-    oidc_redirecting: 正在跳转至登录页面…
-    oidc_redirecting_noscript_html: 自动登录需要启用 JavaScript，或使用下方按钮继续。
-    omniauth_only: 本实例已禁用本地登录，请通过身份提供商登录。
     logout: 退出登录
     migrate_account: 迁移到另一个账号
     migrate_account_html: 如果你希望引导他人关注另一个账号，请<a href="%{path}">点击这里进行设置</a>。
+    oidc_redirecting: 正在跳转至登录页面…
+    oidc_redirecting_noscript_html: 自动登录需要启用 JavaScript，或使用下方按钮继续。
+    omniauth_only: 本实例已禁用本地登录，请通过身份提供商登录。
     or_log_in_with: 或通过外部服务登录
     progress:
       confirm: 确认邮箱

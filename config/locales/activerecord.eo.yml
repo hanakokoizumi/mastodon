@@ -28,12 +28,12 @@ eo:
             username:
               invalid: devas enhavi nur literojn, ciferojn kaj substrekojn
               reserved: rezervita
-            world_plan_server:
-              blank: can't be blank
-              inclusion: is not included in the list
             world_plan_game_id:
               blank: can't be blank
               invalid: must contain numbers only
+            world_plan_server:
+              blank: can't be blank
+              inclusion: is not included in the list
         admin/webhook:
           attributes:
             url:
@@ -86,5 +86,4 @@ eo:
         webhook:
           attributes:
             events:
-              invalid_permissions: ne povas inkluzivi eventojn pri kiuj vi ne havas
-                la rajtojn
+              invalid_permissions: ne povas inkluzivi eventojn pri kiuj vi ne havas la rajtojn

@@ -856,7 +856,7 @@ ja:
         federation_authentication: 連合に署名を必須にする
       title: サーバー設定
     site_uploads:
-        destroyed_msg: ファイルを削除しました！
+      destroyed_msg: ファイルを削除しました！
     software_updates:
       critical_update: "※緊急 (速やかに適用してください)"
       description: Mastodonサーバーはいつでも最新の状態を保ち、新しい機能や修正を利用できるようにしておくことをおすすめします。またセキュリティの問題が発生した場合は、速やかにMastodonをアップデートすることが大切です。Mastodonは30分おきにアップデートを確認し、通知設定に応じて新しいアップデートをメールで通知します。
@@ -1220,11 +1220,11 @@ ja:
     link_to_webauth: セキュリティキーを使用する
     log_in_with: 次の方法でログイン
     login: ログイン
-    oidc_redirecting: ログイン画面へ移動しています…
-    oidc_redirecting_noscript_html: 自動ログインにはJavaScriptが必要です。下のボタンから続行してください。
     logout: ログアウト
     migrate_account: 別のアカウントに引っ越す
     migrate_account_html: 引っ越し先を明記したい場合は<a href="%{path}">こちら</a>で設定できます。
+    oidc_redirecting: ログイン画面へ移動しています…
+    oidc_redirecting_noscript_html: 自動ログインにはJavaScriptが必要です。下のボタンから続行してください。
     or_log_in_with: または次のサービスでログイン
     progress:
       confirm: メールアドレスの確認

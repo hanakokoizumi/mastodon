@@ -32,11 +32,7 @@
     white 8%
   );
   --color-text-brand: color-mix(in oklab, #c291f2 55%, var(--color-indigo-400));
-  --color-border-brand: color-mix(
-    in oklab,
-    #849 45%,
-    var(--color-indigo-400)
-  );
+  --color-border-brand: color-mix(in oklab, #849 45%, var(--color-indigo-400));
 }
 
 [data-color-scheme='light'] {
@@ -51,9 +47,5 @@
     black 8%
   );
   --color-text-brand: color-mix(in oklab, #849 55%, var(--color-indigo-700));
-  --color-border-brand: color-mix(
-    in oklab,
-    #849 40%,
-    var(--color-indigo-600)
-  );
+  --color-border-brand: color-mix(in oklab, #849 40%, var(--color-indigo-600));
 }

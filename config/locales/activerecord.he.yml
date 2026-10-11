@@ -28,12 +28,12 @@ he:
             username:
               invalid: ספרות, אותיות לטיניות וקו תחתי בלבד
               reserved: שמור
-            world_plan_server:
-              blank: can't be blank
-              inclusion: is not included in the list
             world_plan_game_id:
               blank: can't be blank
               invalid: must contain numbers only
+            world_plan_server:
+              blank: can't be blank
+              inclusion: is not included in the list
         admin/webhook:
           attributes:
             url:

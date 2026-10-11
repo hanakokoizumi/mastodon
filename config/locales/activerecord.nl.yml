@@ -28,12 +28,12 @@ nl:
             username:
               invalid: alleen letters, nummers en underscores
               reserved: gereserveerd
-            world_plan_server:
-              blank: can't be blank
-              inclusion: is not included in the list
             world_plan_game_id:
               blank: can't be blank
               invalid: must contain numbers only
+            world_plan_server:
+              blank: can't be blank
+              inclusion: is not included in the list
         admin/webhook:
           attributes:
             url:
@@ -86,5 +86,4 @@ nl:
         webhook:
           attributes:
             events:
-              invalid_permissions: kan geen gebeurtenissen bevatten waar je geen rechten
-                voor hebt
+              invalid_permissions: kan geen gebeurtenissen bevatten waar je geen rechten voor hebt

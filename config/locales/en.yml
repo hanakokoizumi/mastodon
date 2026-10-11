@@ -1,7 +1,7 @@
 ---
 en:
   about:
-    about_mastodon_html: 'A late-night corner of the fediverse—no ads, no corporate surveillance, ethical design, and decentralization. Gather here when the clock hits 25-ji. Own your data with Mastodon.'
+    about_mastodon_html: A late-night corner of the fediverse—no ads, no corporate surveillance, ethical design, and decentralization. Gather here when the clock hits 25-ji. Own your data with Mastodon.
     contact_missing: Not set
     contact_unavailable: N/A
     default_thumbnail_description: Two smiling cartoon mastodons (who look like elephants) toss a paper plane between them. They're surrounded by a bright blue sky and floating planets with trees and more mastodons on them.
@@ -1011,7 +1011,8 @@ en:
         federation_authentication: Federation authentication enforcement
       title: Server settings
     site_uploads:
-        destroyed_msg: Site upload successfully deleted!
+      delete: Delete uploaded file
+      destroyed_msg: Site upload successfully deleted!
     skip_to_content: Skip to content
     software_updates:
       critical_update: Critical — please update quickly
@@ -1349,10 +1350,6 @@ en:
     boosting_preferences: Boosting preferences
     boosting_preferences_info_html: "<strong>Tip:</strong> Regardless of settings, <kbd>Shift</kbd> + <kbd>Click</kbd> on the %{icon} Boost icon will immediately boost."
     discovery: Discovery
-    localization:
-      body: Mastodon is translated by volunteers.
-      guide_link: https://crowdin.com/project/mastodon
-      guide_link_text: Everyone can contribute.
     sensitive_content: Sensitive content
   application_mailer:
     notification_preferences: Change email preferences
@@ -1399,12 +1396,12 @@ en:
     link_to_webauth: Use your security key device
     log_in_with: Log in with
     login: Log in
-    oidc_redirecting: Taking you to sign in…
-    oidc_redirecting_noscript_html: Automatic sign-in needs JavaScript. Use the button below to continue.
-    omniauth_only: Local sign-in is disabled on this server. Please use your identity provider to sign in.
     logout: Logout
     migrate_account: Move to a different account
     migrate_account_html: If you wish to redirect this account to a different one, you can <a href="%{path}">configure it here</a>.
+    oidc_redirecting: Taking you to sign in…
+    oidc_redirecting_noscript_html: Automatic sign-in needs JavaScript. Use the button below to continue.
+    omniauth_only: Local sign-in is disabled on this server. Please use your identity provider to sign in.
     or_log_in_with: Or log in with
     progress:
       confirm: Confirm email
@@ -2100,7 +2097,6 @@ en:
     appearance: Appearance
     authorized_apps: Authorized apps
     back: Back to Nightcord
-    delete: Account deletion
     development: Development
     edit_profile: Edit profile
     export: Export

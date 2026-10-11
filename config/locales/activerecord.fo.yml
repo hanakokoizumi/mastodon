@@ -28,12 +28,12 @@ fo:
             username:
               invalid: kann bara innihalda bókstavir, tøl og botnstriku
               reserved: er umbiðið
-            world_plan_server:
-              blank: can't be blank
-              inclusion: is not included in the list
             world_plan_game_id:
               blank: can't be blank
               invalid: must contain numbers only
+            world_plan_server:
+              blank: can't be blank
+              inclusion: is not included in the list
         admin/webhook:
           attributes:
             url:
@@ -86,5 +86,4 @@ fo:
         webhook:
           attributes:
             events:
-              invalid_permissions: kann ikki taka hendingar, sum tú ikki hevur rættindi
-                til, við
+              invalid_permissions: kann ikki taka hendingar, sum tú ikki hevur rættindi til, við
