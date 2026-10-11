@@ -11,6 +11,7 @@ import { animated, useSpring } from '@react-spring/web';
 import { useDrag } from '@use-gesture/react';
 
 import { useAccount } from '@/mastodon/hooks/useAccount';
+import { NightChatLink } from '@/mastodon/nightcord/components/night_chat_link';
 import AddIcon from '@/material-icons/400-24px/add.svg?react';
 import AlternateEmailIcon from '@/material-icons/400-24px/alternate_email.svg?react';
 import BookmarksActiveIcon from '@/material-icons/400-24px/bookmarks-fill.svg?react';
@@ -324,6 +325,10 @@ export const NavigationPanel: React.FC<{ multiColumn?: boolean }> = ({
           <>
             <li>
               <NotificationsLink />
+            </li>
+
+            <li>
+              <NightChatLink />
             </li>
 
             <li>

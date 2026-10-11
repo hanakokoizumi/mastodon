@@ -36,6 +36,10 @@ The card uses the game's light player-profile palette and teal section bars. The
 
 The rounded ID numerals use a self-hosted digits-only subset of Nunito Medium from Google Fonts. Its SIL Open Font License is included under `app/javascript/fonts/nunito/OFL.txt`. No font or logo request is made to external services at runtime.
 
+## Night chat navigation
+
+The Night chat navigation link uses the Matrix icon from https://github.com/simple-icons/simple-icons/blob/develop/icons/matrix.svg (CC0-1.0, retrieved 2026-10-11), bundled locally under `app/javascript/mastodon/nightcord/icons/`.
+
 ## Smoke check
 
 Login: `admin@localhost` / `mastodonadmin`  
