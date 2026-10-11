@@ -153,6 +153,7 @@
   "account.unmute": "解除靜音 @{name}",
   "account.unmute_notifications_short": "解除靜音推播通知",
   "account.unmute_short": "解除靜音",
+  "account.world_plan.copy_id": "複製遊戲 ID",
   "account.world_plan.label": "世界計畫 ID",
   "account.world_plan.server.cn": "中國大陸服",
   "account.world_plan.server.en": "國際服",

@@ -1,0 +1,205 @@
+@font-face {
+  font-family: 'Nightcord Sekai';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../../../fonts/nunito/nunito-digits-medium.ttf') format('truetype');
+}
+
+.card {
+  position: relative;
+  isolation: isolate;
+  container-type: inline-size;
+  display: grid;
+  grid-template-columns: minmax(100px, 30%) minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+  margin: 16px;
+  padding: 6px 12px;
+  overflow: hidden;
+  border: 2px solid #aaa7bd;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: inset 0 0 0 2px #f0eef5;
+  color: #32313f;
+
+  // Pale diagonal fragments echo the game's player profile background.
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background:
+      linear-gradient(
+        35deg,
+        transparent 20%,
+        #d7f8fc80 21% 24%,
+        transparent 25% 68%,
+        #d7f8fc80 69% 73%,
+        transparent 74%
+      ),
+      linear-gradient(
+        115deg,
+        transparent 45%,
+        #fff1fa80 46% 64%,
+        transparent 65%
+      ),
+      linear-gradient(70deg, transparent 76%, #fffbe580 77%);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: auto -4px -4px auto;
+    width: 80px;
+    height: 80px;
+    background: conic-gradient(
+      from 30deg,
+      #aef3f2,
+      #e3e5ff,
+      #ffc9ed,
+      #fff8ae,
+      #aef3f2
+    );
+    clip-path: polygon(
+      100% 0,
+      78% 30%,
+      95% 46%,
+      56% 50%,
+      70% 76%,
+      25% 87%,
+      0 100%,
+      100% 100%
+    );
+  }
+}
+
+.embedded {
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.logo {
+  width: 160px;
+  max-width: 100%;
+  height: auto;
+}
+
+.details {
+  min-width: 0;
+}
+
+.server {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 8px 2px 2px;
+  border: 1px solid #9290a6;
+  border-radius: 24px;
+  background: #4b4865;
+  box-shadow: inset 0 0 0 2px #fff;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+
+  b {
+    padding: 2px 6px;
+    border-radius: 16px;
+    background: #00bfb3;
+    font-size: 11px;
+    color: #fff;
+  }
+}
+
+.identity {
+  margin: 0;
+
+  dd {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+  }
+}
+
+.label {
+  padding: 3px 9px;
+  border-radius: 24px;
+  background: #00bfb3;
+  color: #083b3d;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.gameId {
+  flex: 1;
+  min-width: 0;
+  font-family: 'Nightcord Sekai', sans-serif;
+  font-size: clamp(16px, 3.8cqi, 22px);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  user-select: all;
+}
+
+.copyButton {
+  --default-icon-color: #4b4865;
+  --hover-icon-color: #4b4865;
+  --hover-bg-color: #d7f8fc;
+
+  flex-shrink: 0;
+  padding: 4px;
+  border: 1px solid #9290a6;
+  border-radius: 50%;
+  background: #fff;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #008d86;
+    outline-offset: 3px;
+  }
+}
+
+@media screen and (width < 760px) {
+  .card {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 12px 16px;
+  }
+
+  .logo {
+    width: 150px;
+  }
+
+  .gameId {
+    font-size: clamp(16px, 5.5cqi, 20px);
+  }
+
+  .copyButton {
+    padding: 10px;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

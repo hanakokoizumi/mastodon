@@ -1,32 +1,12 @@
 import type { FC } from 'react';
 
-import { defineMessage, useIntl } from 'react-intl';
-
-import classNames from 'classnames';
-
-import { MiniCard } from '@/mastodon/components/mini_card';
 import { useAccount } from '@/mastodon/hooks/useAccount';
-import {
-  formatWorldPlanServer,
-  isWorldPlanConfigured,
-} from '@/mastodon/utils/world_plan';
-
-import classes from './styles.module.scss';
-
-const labelMessage = defineMessage({
-  id: 'account.world_plan.label',
-  defaultMessage: 'Project Sekai ID',
-});
-
-const valueMessage = defineMessage({
-  id: 'account.world_plan.value',
-  defaultMessage: '{server} · {gameId}',
-});
+import { WorldPlanCard } from '@/mastodon/nightcord/components/world_plan_card';
+import { isWorldPlanConfigured } from '@/mastodon/utils/world_plan';
 
 export const AccountHeaderWorldPlan: FC<{ accountId: string }> = ({
   accountId,
 }) => {
-  const intl = useIntl();
   const account = useAccount(accountId);
 
   if (
@@ -39,24 +19,10 @@ export const AccountHeaderWorldPlan: FC<{ accountId: string }> = ({
     return null;
   }
 
-  const serverLabel = formatWorldPlanServer(intl, account.world_plan_server);
-
   return (
-    <dl className={classes.fieldList}>
-      <MiniCard
-        className={classNames(classes.fieldItem, classes.worldPlanField)}
-        label={
-          <span className='translate'>{intl.formatMessage(labelMessage)}</span>
-        }
-        value={
-          <span className='translate'>
-            {intl.formatMessage(valueMessage, {
-              server: serverLabel,
-              gameId: account.world_plan_game_id,
-            })}
-          </span>
-        }
-      />
-    </dl>
+    <WorldPlanCard
+      server={account.world_plan_server}
+      gameId={account.world_plan_game_id}
+    />
   );
 };

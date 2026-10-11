@@ -6,6 +6,7 @@
   --nc-radius-lg: 14px;
   --nc-gap-panel: 12px;
   --nc-n25: var(--color-n25, #849);
+  --nc-logo-icon: #515297;
   --nc-signal: var(--color-indigo-400);
   --nc-panel-bg: var(--color-bg-primary);
   --nc-panel-border: color-mix(
@@ -21,6 +22,7 @@
 }
 
 [data-color-scheme='dark'] {
+  --nc-logo-icon: #c291f2;
   --nc-panel-bg: rgb(61 54 89 / 82%);
   --nc-elevated-bg: rgb(48 42 72 / 94%);
 
@@ -36,6 +38,8 @@
 }
 
 [data-color-scheme='light'] {
+  --nc-logo-icon: #515297;
+
   // More see-through so wallpaper reads through side panels.
   --nc-panel-bg: rgb(245 242 252 / 52%);
   --nc-elevated-bg: rgb(250 248 255 / 94%);

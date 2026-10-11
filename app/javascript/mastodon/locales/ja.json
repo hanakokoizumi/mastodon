@@ -149,6 +149,7 @@
   "account.unmute": "@{name}さんのミュートを解除",
   "account.unmute_notifications_short": "通知オフを解除",
   "account.unmute_short": "ミュート解除",
+  "account.world_plan.copy_id": "ゲームIDをコピー",
   "account.world_plan.label": "プロジェクトセカイ ID",
   "account.world_plan.server.cn": "中国本土",
   "account.world_plan.server.en": "グローバル",

@@ -6,6 +6,13 @@
   @media screen and (min-width: $no-gap-breakpoint) {
     .layout-single-column {
       .navigation-panel {
+        overflow-y: auto;
+        scrollbar-width: thin;
+
+        > * {
+          flex-shrink: 0;
+        }
+
         .search,
         .navigation-bar,
         .navigation-panel__logo,
@@ -60,17 +67,23 @@
         }
 
         .navigation-panel__menu {
+          flex: 0 0 auto;
           margin-bottom: var(--nc-gap-panel);
           padding-block: 4px;
           overflow: hidden;
         }
 
         .navigation-panel__portal {
+          display: block;
           margin-top: 0;
           overflow: hidden;
 
           .getting-started__trends {
             margin-top: 0;
+          }
+
+          .trends__item:nth-child(n) {
+            display: flex;
           }
         }
       }

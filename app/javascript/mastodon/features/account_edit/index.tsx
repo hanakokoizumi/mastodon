@@ -19,12 +19,12 @@ import { useAccount } from '@/mastodon/hooks/useAccount';
 import { useCurrentAccountId } from '@/mastodon/hooks/useAccountId';
 import { useCustomEmojis } from '@/mastodon/hooks/useCustomEmojis';
 import { autoPlayGif } from '@/mastodon/initial_state';
+import { WorldPlanCard } from '@/mastodon/nightcord/components/world_plan_card';
 import {
   fetchProfile,
   patchProfile,
 } from '@/mastodon/reducers/slices/profile_edit';
 import { useAppDispatch, useAppSelector } from '@/mastodon/store';
-import { formatWorldPlanServer } from '@/mastodon/utils/world_plan';
 
 import { AccountEditColumn, AccountEditEmptyColumn } from './components/column';
 import { EditButton } from './components/edit_button';
@@ -220,19 +220,6 @@ export const AccountEdit: FC = () => {
   const hasTags = profile.featuredTags.length > 0;
   const hasWorldPlan = !!(profile.worldPlanServer && profile.worldPlanGameId);
 
-  const worldPlanDisplay = hasWorldPlan
-    ? intl.formatMessage(
-        {
-          id: 'account.world_plan.value',
-          defaultMessage: '{server} · {gameId}',
-        },
-        {
-          server: formatWorldPlanServer(intl, profile.worldPlanServer),
-          gameId: profile.worldPlanGameId,
-        },
-      )
-    : '';
-
   return (
     <AccountEditColumn
       title={intl.formatMessage(messages.columnTitle)}
@@ -367,7 +354,13 @@ export const AccountEdit: FC = () => {
             />
           }
         >
-          {hasWorldPlan && worldPlanDisplay}
+          {hasWorldPlan && (
+            <WorldPlanCard
+              server={profile.worldPlanServer}
+              gameId={profile.worldPlanGameId}
+              embedded
+            />
+          )}
         </AccountEditSection>
 
         <AccountEditSection

@@ -1,13 +1,6 @@
 <svg width="272" height="66" viewBox="0.00 0.00 272.00 66.00" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <style>
-  .logo-icon { fill: #515297; }
-  @media (prefers-color-scheme: dark) {
-    .logo-icon { fill: #c291f2; }
-  }
-  [data-color-scheme="dark"] .logo-icon,
-  [data-color-scheme="dark"] ~ * .logo-icon { fill: #c291f2; }
-  [data-color-scheme="light"] .logo-icon,
-  [data-color-scheme="light"] ~ * .logo-icon { fill: #515297; }
+  .logo-icon { fill: var(--nc-logo-icon, #515297); }
 </style>
 <symbol id="logo-symbol-wordmark">
 <path class="logo-icon" d="

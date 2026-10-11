@@ -153,6 +153,7 @@
   "account.unmute": "不再隐藏 @{name}",
   "account.unmute_notifications_short": "恢复通知",
   "account.unmute_short": "取消隐藏",
+  "account.world_plan.copy_id": "复制游戏 ID",
   "account.world_plan.label": "世界计划 ID",
   "account.world_plan.server.cn": "中国大陆服",
   "account.world_plan.server.en": "国际服",

@@ -14,10 +14,8 @@ jobs:
     if: github.repository == 'hanakokoizumi/mastodon'
     steps:
       - id: version_vars
-        env:
-          TZ: Etc/UTC
         run: |
-          echo mastodon_version_prerelease=nightly.$(date +'%Y-%m-%d')>> $GITHUB_OUTPUT
+          echo mastodon_version_prerelease=nightcord >> $GITHUB_OUTPUT
     outputs:
       prerelease: ${{ steps.version_vars.outputs.mastodon_version_prerelease }}
 
@@ -31,7 +29,7 @@ jobs:
         ghcr.io/hanakokoizumi/mastodon
       version_prerelease: ${{ needs.compute-suffix.outputs.prerelease }}
       labels: |
-        org.opencontainers.image.description=Nightly build image used for testing purposes
+        org.opencontainers.image.description=Nightcord build based on the latest upstream release
       flavor: |
         latest=auto
       tags: |
