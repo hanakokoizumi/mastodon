@@ -33,6 +33,7 @@ RSpec.describe Auth::SessionsController do
       end
 
       after do
+        allow(Devise).to receive(:omniauth_providers).and_call_original
         allow(User).to receive(:omniauth_providers).and_call_original
         Rails.application.reload_routes!
       end
@@ -143,7 +144,7 @@ RSpec.describe Auth::SessionsController do
     context 'when using password authentication' do
       let(:user) { Fabricate(:user, email: 'foo@bar.com', password: 'abcdefgh') }
 
-      context 'when OMNIAUTH_ONLY is enabled' do
+      context 'when OMNIAUTH_ONLY is enabled without PAM or LDAP' do
         around do |example|
           ClimateControl.modify OMNIAUTH_ONLY: 'true' do
             example.run
@@ -151,6 +152,7 @@ RSpec.describe Auth::SessionsController do
         end
 
         before do
+          allow(Devise).to receive_messages(pam_authentication: false, ldap_authentication: false)
           post :create, params: { user: { email: user.email, password: user.password } }
         end
 
