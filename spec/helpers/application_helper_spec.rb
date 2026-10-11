@@ -132,6 +132,13 @@ RSpec.describe ApplicationHelper do
         before do
           allow(Devise.mappings[:user]).to receive(:omniauthable?).and_return(true)
           allow(User).to receive(:omniauth_providers).and_return([:openid_connect])
+          Devise.include_helpers(Devise::OmniAuth)
+          Rails.application.reload_routes!
+        end
+
+        after do
+          allow(User).to receive(:omniauth_providers).and_call_original
+          Rails.application.reload_routes!
         end
 
         it 'returns the OmniAuth authorize URL' do

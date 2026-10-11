@@ -8,7 +8,7 @@ RSpec.describe UserPolicy do
   let(:admin)   { Fabricate(:admin_user).account }
   let(:john)    { Fabricate(:account) }
 
-  permissions :reset_password?, :change_email? do
+  permissions :reset_password? do
     context 'when staff?' do
       context 'with !record.staff?' do
         it 'permits' do
@@ -49,6 +49,20 @@ RSpec.describe UserPolicy do
       it 'denies' do
         expect(subject).to_not permit(john, User)
       end
+    end
+  end
+
+  permissions :change_email? do
+    it 'permits staff to change another user email' do
+      expect(subject).to permit(admin, john.user)
+    end
+
+    it 'denies changing an equal staff member email' do
+      expect(subject).to_not permit(admin, admin.user)
+    end
+
+    it 'denies users without staff permissions' do
+      expect(subject).to_not permit(john, User)
     end
   end
 

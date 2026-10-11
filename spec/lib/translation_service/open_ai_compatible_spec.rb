@@ -10,7 +10,7 @@ RSpec.describe TranslationService::OpenAiCompatible do
       stub_request(:post, 'https://llm.example.com/v1/chat/completions')
         .with(headers: { 'Content-Type' => 'application/json', :Authorization => 'Bearer token' })
         .to_return(
-          body: Oj.dump(
+          body: JSON.generate(
             'choices' => [
               {
                 'message' => {
@@ -33,7 +33,7 @@ RSpec.describe TranslationService::OpenAiCompatible do
     it 'strips markdown code fences from model output' do
       stub_request(:post, 'https://llm.example.com/v1/chat/completions')
         .to_return(
-          body: Oj.dump(
+          body: JSON.generate(
             'choices' => [
               {
                 'message' => {
@@ -51,9 +51,13 @@ RSpec.describe TranslationService::OpenAiCompatible do
 
     it 'translates multiple fragments in one request' do
       stub_request(:post, 'https://llm.example.com/v1/chat/completions')
-        .with(body: /"fragments":\[\\"A\\",\\"B\\"\]/)
+        .with do |request|
+          body = JSON.parse(request.body)
+          message = body['messages'].find { |item| item['role'] == 'user' }
+          JSON.parse(message['content'])['fragments'] == %w(A B)
+        end
         .to_return(
-          body: Oj.dump(
+          body: JSON.generate(
             'choices' => [
               {
                 'message' => {
@@ -68,13 +72,44 @@ RSpec.describe TranslationService::OpenAiCompatible do
       expect(translations.map(&:text)).to eq %w(One Two)
     end
 
+    it 'reports an unknown source language when detection is absent' do
+      stub_request(:post, 'https://llm.example.com/v1/chat/completions')
+        .to_return(body: JSON.generate(choices: [{ message: { content: '{"translations":["Hello"]}' } }]))
+
+      expect(service.translate(['Hello'], nil, 'en').first.detected_source_language).to eq 'und'
+    end
+
+    it 'handles invalid JSON in the API response' do
+      stub_request(:post, 'https://llm.example.com/v1/chat/completions')
+        .to_return(body: 'invalid JSON')
+
+      expect { service.translate(['Hello'], 'en', 'ja') }
+        .to raise_error(TranslationService::UnexpectedResponseError)
+    end
+
+    it 'handles invalid JSON in the model response' do
+      stub_request(:post, 'https://llm.example.com/v1/chat/completions')
+        .to_return(body: JSON.generate(choices: [{ message: { content: 'invalid JSON' } }]))
+
+      expect { service.translate(['Hello'], 'en', 'ja') }
+        .to raise_error(TranslationService::UnexpectedResponseError)
+    end
+
+    it 'rejects responses with a different number of translated fragments' do
+      stub_request(:post, 'https://llm.example.com/v1/chat/completions')
+        .to_return(body: JSON.generate(choices: [{ message: { content: '{"translations":["One"]}' } }]))
+
+      expect { service.translate(%w(A B), 'en', 'ja') }
+        .to raise_error(TranslationService::UnexpectedResponseError)
+    end
+
     context 'when display_name is blank' do
       subject(:service) { described_class.new('https://llm.example.com', 'token', 'gpt-mini', '', nil) }
 
       it 'uses the model id as provider label' do
         stub_request(:post, 'https://llm.example.com/v1/chat/completions')
           .to_return(
-            body: Oj.dump(
+            body: JSON.generate(
               'choices' => [
                 {
                   'message' => {
@@ -96,7 +131,7 @@ RSpec.describe TranslationService::OpenAiCompatible do
         stub_request(:post, 'https://ollama.example.com/v1/chat/completions')
           .with { |req| !req.headers.key?('Authorization') }
           .to_return(
-            body: Oj.dump(
+            body: JSON.generate(
               'choices' => [
                 {
                   'message' => {
@@ -132,7 +167,7 @@ RSpec.describe TranslationService::OpenAiCompatible do
     it 'does not duplicate /v1 in the path' do
       stub_request(:post, 'https://api.openai.com/v1/chat/completions')
         .to_return(
-          body: Oj.dump(
+          body: JSON.generate(
             'choices' => [
               { 'message' => { 'content' => '{"detected_source_language":"en","translations":["ok"]}' } },
             ]

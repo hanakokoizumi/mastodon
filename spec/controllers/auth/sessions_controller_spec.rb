@@ -27,6 +27,14 @@ RSpec.describe Auth::SessionsController do
         allow(Rails.configuration.x.omniauth).to receive(:oidc_enabled?).and_return(true)
         allow(Devise).to receive(:omniauth_providers).and_return([:openid_connect])
         allow(Devise.mappings[:user]).to receive(:omniauthable?).and_return(true)
+        allow(User).to receive(:omniauth_providers).and_return([:openid_connect])
+        Devise.include_helpers(Devise::OmniAuth)
+        Rails.application.reload_routes!
+      end
+
+      after do
+        allow(User).to receive(:omniauth_providers).and_call_original
+        Rails.application.reload_routes!
       end
 
       it 'renders the OIDC auto-post page' do
@@ -62,6 +70,19 @@ RSpec.describe Auth::SessionsController do
     context 'with a suspended user' do
       before do
         user.account.suspend!
+      end
+
+      it 'redirects to home after sign out' do
+        sign_in(user, scope: :user)
+        delete :destroy
+
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
+
+    context 'with a deleted user' do
+      before do
+        user.account.mark_deleted!
       end
 
       it 'redirects to home after sign out' do

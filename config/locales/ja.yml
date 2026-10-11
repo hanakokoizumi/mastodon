@@ -856,8 +856,7 @@ ja:
         federation_authentication: 連合に署名を必須にする
       title: サーバー設定
     site_uploads:
-      delete: ファイルを削除
-      destroyed_msg: ファイルを削除しました！
+        destroyed_msg: ファイルを削除しました！
     software_updates:
       critical_update: "※緊急 (速やかに適用してください)"
       description: Mastodonサーバーはいつでも最新の状態を保ち、新しい機能や修正を利用できるようにしておくことをおすすめします。またセキュリティの問題が発生した場合は、速やかにMastodonをアップデートすることが大切です。Mastodonは30分おきにアップデートを確認し、通知設定に応じて新しいアップデートをメールで通知します。
@@ -1318,7 +1317,6 @@ ja:
   deletes:
     challenge_not_passed: 入力された情報は正しくありません
     confirm_password: 本人確認のため、現在のパスワードを入力してください
-    confirm_username: 確認のためユーザー名を入力してください
     proceed: アカウントを削除する
     success_msg: アカウントは正常に削除されました
     warning:
@@ -1677,7 +1675,6 @@ ja:
     next: 次
     older: 以前の投稿
     prev: 前
-    truncate: "&hellip;"
   polls:
     errors:
       already_voted: このアンケートには投票済みです

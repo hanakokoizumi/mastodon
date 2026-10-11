@@ -23,7 +23,7 @@ class TranslationService::OpenAiCompatible < TranslationService
   end
 
   def translate(texts, source_language, target_language)
-    body = Oj.dump(
+    body = JSON.generate(
       model: @model,
       temperature: 0.2,
       max_tokens: 16_384,
@@ -31,7 +31,7 @@ class TranslationService::OpenAiCompatible < TranslationService
         { role: 'system', content: SYSTEM_PROMPT },
         {
           role: 'user',
-          content: Oj.dump(
+          content: JSON.generate(
             source_language: source_language,
             target_language: target_language,
             fragments: texts
@@ -81,7 +81,7 @@ class TranslationService::OpenAiCompatible < TranslationService
   end
 
   def primary_language_tag(code)
-    code.to_s.split(/[_-]/).first.downcase
+    code.to_s.strip.split(/[_-]/).first.to_s.downcase
   end
 
   def request(verb, url, **)
@@ -103,7 +103,7 @@ class TranslationService::OpenAiCompatible < TranslationService
   end
 
   def transform_response(json, source_language, fragment_count)
-    data = Oj.load(json, mode: :strict)
+    data = JSON.parse(json)
     raise UnexpectedResponseError unless data.is_a?(Hash)
 
     content = data.dig('choices', 0, 'message', 'content')
@@ -125,7 +125,7 @@ class TranslationService::OpenAiCompatible < TranslationService
         provider: provider_label
       )
     end
-  rescue Oj::ParseError
+  rescue JSON::ParserError
     raise UnexpectedResponseError
   end
 
@@ -133,6 +133,6 @@ class TranslationService::OpenAiCompatible < TranslationService
     stripped = content.to_s.strip
     stripped = stripped.sub(/\A```(?:json)?\s*/i, '')
     stripped = stripped.sub(/\s*```\z/, '')
-    Oj.load(stripped, mode: :strict)
+    JSON.parse(stripped)
   end
 end

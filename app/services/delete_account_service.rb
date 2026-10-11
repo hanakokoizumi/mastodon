@@ -3,13 +3,15 @@
 class DeleteAccountService < BaseService
   include Payloadable
 
-  ASSOCIATIONS_ON_SUSPEND = %w(
+  ASSOCIATIONS_ON_PURGE = %w(
     account_notes
     account_pins
     active_relationships
     aliases
     block_relationships
     blocked_by_relationships
+    collections
+    collection_items
     conversation_mutes
     conversations
     custom_filters
@@ -26,6 +28,8 @@ class DeleteAccountService < BaseService
     report_notes
     scheduled_statuses
     status_pins
+    tag_follows
+    generated_annual_reports
   ).freeze
 
   # The following associations have no important side-effects
@@ -51,6 +55,7 @@ class DeleteAccountService < BaseService
     scheduled_statuses
     status_pins
     tag_follows
+    generated_annual_reports
   ).freeze
 
   ASSOCIATIONS_ON_DESTROY = %w(
@@ -158,6 +163,8 @@ class DeleteAccountService < BaseService
   end
 
   def purge_statuses!
+    @account.statuses.reorder(nil).where(id: reported_status_ids).in_batches.update_all('deleted_at = COALESCE(statuses.deleted_at, NOW())')
+
     @account.statuses.reorder(nil).where.not(id: reported_status_ids).in_batches do |statuses|
       BatchedRemoveStatusService.new.call(statuses, skip_side_effects: skip_side_effects?)
     end
@@ -192,7 +199,7 @@ class DeleteAccountService < BaseService
       ids = favourites.pluck(:status_id)
       StatusStat.where(status_id: ids).update_all('favourites_count = GREATEST(0, favourites_count - 1)')
       Chewy.strategy.current.update(StatusesIndex, ids) if Chewy.enabled?
-      Rails.cache.delete_multi(ids.map { |id| "statuses/#{id}" })
+      Rails.cache.delete_multi(ids.flat_map { |id| ["v3:statuses/#{id}", "statuses/show:v3:statuses/#{id}"] })
       favourites.delete_all
     end
   end
@@ -224,9 +231,14 @@ class DeleteAccountService < BaseService
 
     return unless keep_account_record?
 
+    if @options[:suspended_at]
+      @account.suspended_at      = @options[:suspended_at]
+      @account.suspension_origin = :local
+    else
+      @account.requested_deletion_at ||= Time.now.utc
+    end
+
     @account.silenced_at         = nil
-    @account.suspended_at        = @options[:suspended_at] || Time.now.utc
-    @account.suspension_origin   = :local
     @account.locked              = false
     @account.memorial            = false
     @account.discoverable        = false
@@ -243,6 +255,8 @@ class DeleteAccountService < BaseService
     @account.also_known_as       = []
     @account.avatar.destroy
     @account.header.destroy
+    @account.avatar_description = ''
+    @account.header_description = ''
     @account.save!
   end
 
@@ -302,9 +316,9 @@ class DeleteAccountService < BaseService
 
   def associations_for_destruction
     if keep_account_record?
-      ASSOCIATIONS_ON_SUSPEND
+      ASSOCIATIONS_ON_PURGE
     else
-      ASSOCIATIONS_ON_SUSPEND + ASSOCIATIONS_ON_DESTROY
+      ASSOCIATIONS_ON_PURGE + ASSOCIATIONS_ON_DESTROY
     end
   end
 

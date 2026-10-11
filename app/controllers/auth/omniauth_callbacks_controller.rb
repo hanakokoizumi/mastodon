@@ -51,7 +51,7 @@ class Auth::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def store_oidc_id_token_hint_for_logout(auth)
     return unless @provider.to_s == 'openid_connect'
 
-    token = auth.credentials[:id_token]
+    token = auth.credentials&.[](:id_token)
     return if token.blank?
 
     session[OmniAuth::Strategies::OpenidConnectEndSessionEnhancement::ID_TOKEN_HINT_SESSION_KEY] = token
